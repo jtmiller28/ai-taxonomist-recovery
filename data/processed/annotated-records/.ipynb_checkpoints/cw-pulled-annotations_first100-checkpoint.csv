@@ -1,0 +1,574 @@
+obs_id,usable,ourSpeciesID,dorsalImage,lateralImage,Possible
+observation_103018287,TRUE ,CW,103018287_1.jpg,103018287_2.jpg,FALSE
+observation_10445512,TRUE ,CW,10445512_2.jpg,10445512_1.jpg,FALSE
+observation_107213350,FALSE,NA,,,FALSE
+observation_10722929,TRUE ,CW,10722929_4.jpg,10722929_3.jpg,FALSE
+observation_107359261,FALSE,NA,,,FALSE
+observation_107935815,FALSE,NA,,,FALSE
+observation_10801335,FALSE,NA,,,FALSE
+observation_10801352,FALSE,NA,,,FALSE
+observation_108043537,TRUE ,CW,108043537_1.jpg,108043537_3.jpg,FALSE
+observation_108045630,FALSE,NA,,,FALSE
+observation_108489444,FALSE,NA,,,FALSE
+observation_108926666,TRUE ,CW,108926666_2.jpg,108926666_3.jpg,FALSE
+observation_108966286,TRUE ,CW,108966286_2.jpg,108966286_5.jpg,FALSE
+observation_109060820,FALSE,NA,,,FALSE
+observation_109068869,FALSE,NA,,,FALSE
+observation_109185879,TRUE ,CW,109185879_1.jpg,109185879_2.jpg ,FALSE
+observation_109272260,FALSE,NA,,,TRUE
+observation_109484584,FALSE,NA,,,FALSE
+observation_109815136,FALSE,NA,,,FALSE
+observation_109861133,TRUE ,CW,109861133_1.jpg,109861133_2.jpg,FALSE
+observation_110145498,TRUE ,CW,110145498_2.jpg,110145498_3.jpg,FALSE
+observation_110200904,FALSE,NA,,,FALSE
+observation_110247071,FALSE,NA,,,FALSE
+observation_110247475,TRUE ,CW,110247475_1.jpg,110247475_2.jpg,FALSE
+observation_110357747,FALSE,NA,,,FALSE
+observation_110791841,FALSE,NA,,,FALSE
+observation_110861029,FALSE,NA,,,FALSE
+observation_110888401,TRUE ,CW,110888401_1.jpg,110888401_2.jpg,FALSE
+observation_111148400,FALSE,NA,,,FALSE
+observation_11136101,TRUE ,CW,11136101_3.jpg,11136101_1.jpg,FALSE
+observation_111381712,FALSE,NA,,,FALSE
+observation_111391086,FALSE,NA,,,FALSE
+observation_111478217,TRUE ,CW,111478217_3.jpg,111478217_2.jpg,FALSE
+observation_11238030,FALSE,NA,,,FALSE
+observation_114233476,FALSE,NA,,,FALSE
+observation_116184174,FALSE,NA,,,FALSE
+observation_119833139,TRUE ,CW,119833139_2.jpg,119833139_3.jpg,FALSE
+observation_122616039,TRUE ,CW,122616039_3.jpg,122616039_4.jpg,FALSE
+observation_126546652,FALSE,NA,,,FALSE
+observation_1265603,TRUE ,CW,1265603_1.jpg,1265603_2.jpg,FALSE
+observation_1284985,FALSE,NA,,,FALSE
+observation_1320302,FALSE,NA,,,FALSE
+observation_132836724,TRUE ,CW,132836724_1.jpg,132836724_2.jpg,FALSE
+observation_145921218,FALSE,NA,,,FALSE
+observation_146800521,TRUE ,CW,146800521_3.jpg,146800521_1.jpg,FALSE
+observation_147249851,FALSE,NA,,,FALSE
+observation_147501697,FALSE,NA,,,FALSE
+observation_148081571,FALSE,NA,,,FALSE
+observation_148091547,FALSE,NA,,,FALSE
+observation_148209986,TRUE ,CW,148209986_5.jpg,148209986_3.jpg,FALSE
+observation_148340882,TRUE ,CW,148340882_1.jpg,148340882_2.jpg,FALSE
+observation_148423040,TRUE ,CW,148423040_1.jpg,148423040_2.jpg,FALSE
+observation_148425413,TRUE ,CW,148425413_1.jpg,148425413_2.jpg,FALSE
+observation_149447702,FALSE,NA,,,TRUE
+observation_149861788,TRUE ,CW,148425413_2.jpg,148425413_5.jpg,FALSE
+observation_149932808,FALSE,NA,,,FALSE
+observation_150346086,FALSE,NA,,,FALSE
+observation_150440251,FALSE,NA,,,FALSE
+observation_150541968,TRUE ,CW,150541968_3.jpg,150541968_1.jpg,FALSE
+observation_150624909,TRUE ,CW,150624909_1.jpg,150624909_3.jpg,FALSE
+observation_150753884,TRUE ,CW,150753884_1.jpg,150753884_2.jpg,FALSE
+observation_150753913,FALSE,NA,,,FALSE
+observation_150778647,FALSE,NA,,,FALSE
+observation_150878758,FALSE,NA,,,FALSE
+observation_151179184,TRUE ,CW,151179184_2.jpg,151179184_3.jpg,FALSE
+observation_151261640,FALSE,NA,,,TRUE
+observation_151328495,FALSE,NA,,,FALSE
+observation_151364518,FALSE,NA,,,FALSE
+observation_151387621,FALSE,NA,,,FALSE
+observation_151550254,TRUE ,CW,151550254_1.jpg,151550254_2.jpg,FALSE
+observation_151573067,FALSE,NA,,,FALSE
+observation_151615575,TRUE ,CW,151615575_2.jpg,151615575_1.jpg,FALSE
+observation_151618370,TRUE ,CW,151618370_2.jpg,151618370_1.jpg,FALSE
+observation_151634391,TRUE ,CW,151634391_1.jpg,151634391_2.jpg,FALSE
+observation_151641880,FALSE,NA,,,FALSE
+observation_151757744,FALSE,NA,,,FALSE
+observation_151795128,FALSE,NA,,,FALSE
+observation_151835146,FALSE,NA,,,FALSE
+observation_151872174,TRUE ,CW,151872174_1.jpg,151872174_2.jpg,FALSE
+observation_151879713,FALSE,NA,,,FALSE
+observation_151922705,FALSE,NA,,,FALSE
+observation_151988076,FALSE,NA,,,FALSE
+observation_152002907,FALSE,NA,,,FALSE
+observation_152331530,TRUE ,CW,152331530_1.jpg,152331530_2.jpg,TRUE
+observation_152372001,TRUE ,CW,152372001_3.jpg,152372001_1.jpg,FALSE
+observation_152467980,TRUE ,CW,152467980_1.jpg,152467980_3.jpg,FALSE
+observation_152510667,FALSE,NA,,,FALSE
+observation_152522535,FALSE,NA,,,FALSE
+observation_152537681,TRUE ,CW,152537681_2.jpg,152537681_3.jpg,FALSE
+observation_152620160,TRUE ,CW,152620160_1.jpg,152620160_2.jpg,FALSE
+observation_152937850,TRUE ,CW,152937850_2.jpg,152937850_1.jpg,FALSE
+observation_152967934,FALSE,NA,,,FALSE
+observation_152995338,FALSE,NA,,,FALSE
+observation_152995756,TRUE ,CW,152995756_1.jpg,152995756_2.jpg,FALSE
+observation_153091685,FALSE,NA,,,FALSE
+observation_153126138,TRUE ,CW,153126138_1.jpg,153126138_2.jpg,FALSE
+observation_153135324,FALSE,NA,,,FALSE
+observation_153243428,FALSE,NA,,,FALSE
+observation_153247872,TRUE ,CW,153247872_1.jpg,153247872_3.jpg,FALSE
+observation_153447545,FALSE,NA,,,FALSE
+observation_153517921,TRUE ,CW,153517921_1.jpg,153517921_1.jpg,FALSE
+observation_153620047,TRUE ,CW,153620047_1.jpg,153620047_3.jpg,FALSE
+observation_153620049,TRUE ,CW,153620049_1.jpg,153620049_2.jpg,FALSE
+observation_153628571,FALSE,NA,,,FALSE
+observation_153661296,FALSE,NA,,,FALSE
+observation_153955435,FALSE,NA,,,FALSE
+observation_153986888,TRUE ,CW,153986888_1.jpg,153986888_3.jpg,FALSE
+observation_154035890,TRUE ,CW,154035890_2.jpg,154035890_1.jpg,FALSE
+observation_154060902,TRUE ,CW,154060902_2.jpg,154060902_1.jpg,FALSE
+observation_154215756,TRUE ,CW,154215756_1.jpg,154215756_3.jpg,FALSE
+observation_154292674,FALSE,NA,,,FALSE
+observation_154349514,FALSE ,NA ,,,TRUE
+observation_154574803,FALSE ,NA,,,FALSE
+observation_154729441,TRUE ,CW,154729441_5.jpg,154729441_4.jpg,FALSE
+observation_154742395,FALSE ,NA,,,FALSE
+observation_154930443,TRUE ,CW,154930443_1.jpg,154930443_2.jpg,FALSE
+observation_155157330,FALSE ,NA,,,FALSE
+observation_155233637,TRUE ,CW,155233637_1.jpg,155233637_1.jpg,FALSE
+observation_155267833,TRUE ,CW,155267833_2.jpg,155267833_1.jpg,FALSE
+observation_155279701,FALSE ,NA,,,FALSE
+observation_155376223,TRUE ,CW,155376223_1.jpg,155376223_2.jpg,FALSE
+observation_155597925,FALSE ,NA,,,FALSE
+observation_155598253,FALSE ,NA,,,FALSE
+observation_155619572,FALSE ,NA,,,FALSE
+observation_155678681,TRUE ,CW,155678681_1.jpg,155678681_2.jpg,FALSE
+observation_155738447,FALSE ,NA,,,FALSE
+observation_155744419,FALSE ,NA,,,FALSE
+observation_155845877,FALSE ,NA,,,FALSE
+observation_156299125,FALSE ,NA,,,FALSE
+observation_156621944,FALSE ,NA,,,FALSE
+observation_156642970,FALSE ,NA,,,FALSE
+observation_156902299,FALSE ,NA,,,TRUE
+observation_156956380,FALSE ,NA,,,FALSE
+observation_156967782,TRUE ,CW,156967782_3.jpg,156967782_3.jpg,FALSE
+observation_156968207,FALSE ,NA,,,FALSE
+observation_156968271,FALSE ,NA,,,FALSE
+observation_158117511,TRUE ,CW,158117511_1.jpg,158117511_2.jpg,FALSE
+observation_158210747,FALSE ,NA,,,FALSE
+observation_158346973,TRUE ,CW,158346973_1.jpg,158346973_2.jpg,FALSE
+observation_158653479,FALSE ,NA,,,FALSE
+observation_158809971,TRUE ,CW,158809971_2.jpg,158809971_1.jpg,FALSE
+observation_158927551,TRUE ,CW,158927551_3.jpg,158927551_1.jpg,FALSE
+observation_158927553,TRUE ,CW,158927553_2.jpg,158927553_1.jpg,FALSE
+observation_159179017,FALSE ,NA,,,FALSE
+observation_159237365,TRUE ,CW,159237365_2.jpg,159237365_3.jpg,FALSE
+observation_159332255,FALSE ,NA,,,FALSE
+observation_159430802,TRUE ,CW,159430802_1.jpg,159430802_2.jpg,FALSE
+observation_159537843,FALSE ,NA,,,FALSE
+observation_159551263,TRUE ,CW,159551263_2.jpg,159551263_1.jpg,FALSE
+observation_160145860,FALSE ,NA,,,FALSE
+observation_160791556,TRUE ,CW,160791556_2.jpg,160791556_1.jpg,FALSE
+observation_160795837,FALSE ,NA,,,FALSE
+observation_161017051,TRUE ,CW,161017051_2.jpg,161017051_4.jpg,FALSE
+observation_161220015,FALSE ,NA,,,FALSE
+observation_161808841,FALSE ,NA,,,FALSE
+observation_161919893,FALSE ,NA,,,FALSE
+observation_162729835,TRUE ,CW,162729835_1.jpg,162729835_2.jpg,TRUE
+observation_163019740,FALSE ,NA,,,FALSE
+observation_163754689,FALSE ,NA,,,FALSE
+observation_164117175,TRUE ,CW,164117175_1.jpg,164117175_2.jpg,FALSE
+observation_164682202,FALSE ,NA,,,FALSE
+observation_165614503,FALSE ,NA,,,FALSE
+observation_167141550,TRUE ,CW,167141550_1.jpg,167141550_2.jpg,FALSE
+observation_17818628,FALSE ,NA,,,TRUE
+observation_178987632,TRUE ,CW,178987632_1.jpg,178987632_2.jpg,FALSE
+observation_18480859,TRUE ,CW,18480859_1.jpg,18480859_2.jpg,FALSE
+observation_18781216,FALSE ,NA,,,FALSE
+observation_189588783,TRUE ,CW,189588783_2.jpg,189588783_3.jpg,FALSE
+observation_190732253,TRUE ,CW,190732253_2.jpg,190732253_3.jpg,FALSE
+observation_19081754,TRUE ,CW,19081754_1.jpg,19081754_3.jpg,FALSE
+observation_191193805,FALSE ,NA,,,FALSE
+observation_19272141,FALSE ,NA,,,FALSE
+observation_19340030,FALSE ,NA,,,FALSE
+observation_19392974,FALSE ,NA,,,FALSE
+observation_193979794,FALSE ,NA,,,FALSE
+observation_194313879,TRUE ,CW,194313879_1.jpg,194313879_2.jpg,FALSE
+observation_19501130,FALSE ,NA,,,FALSE
+observation_19501131,FALSE ,NA,,,FALSE
+observation_19501134,FALSE ,NA,,,FALSE
+observation_19501136,FALSE ,NA,,,FALSE
+observation_19521972,FALSE ,NA,,,FALSE
+observation_19528964,FALSE ,NA,,,FALSE
+observation_19532999,FALSE ,NA,,,FALSE
+observation_19533000,FALSE ,NA,,,FALSE
+observation_19555756,FALSE ,NA,,,TRUE
+observation_19563040,FALSE ,NA,,,FALSE
+observation_19563041,FALSE ,NA,,,FALSE
+observation_19563043,TRUE ,CW,19563043_2.jpg,19563043_1.jpg,FALSE
+observation_19582249,FALSE ,NA,,,FALSE
+observation_19646106,FALSE ,NA,,,FALSE
+observation_19665706,FALSE ,NA,,,FALSE
+observation_19667429,FALSE ,NA,,,FALSE
+observation_19793296,TRUE ,CW,19793296_1.jpg,19793296_2.jpg,FALSE
+observation_19852060,FALSE ,NA,,,FALSE
+observation_19852262,FALSE ,NA,,,FALSE
+observation_19888497,TRUE ,CW,19888497_1.jpg,19888497_3.jpg,FALSE
+observation_19896728,FALSE ,NA,,,FALSE
+observation_19915669,TRUE ,CW,19915669_1.jpg,19915669_3.jpg,FALSE
+observation_19923517,FALSE ,NA,,,FALSE
+observation_199321698,FALSE ,NA,,,FALSE
+observation_19963452,FALSE ,NA,,,TRUE
+observation_19977601,FALSE ,NA,,,FALSE
+observation_19978266,FALSE ,NA,,,FALSE
+observation_19979427,FALSE ,NA,,,FALSE
+observation_199915795,FALSE ,NA,,,FALSE
+observation_19994401,FALSE ,NA,,,FALSE
+observation_19994486,FALSE ,NA,,,FALSE
+observation_19994928,FALSE ,NA,,,FALSE
+observation_19999359,FALSE ,NA,,,FALSE
+observation_200219947,FALSE ,NA,,,FALSE
+observation_200221832,FALSE ,NA,,,FALSE
+observation_20023674,FALSE ,NA,,,FALSE
+observation_20040487,TRUE ,CW,20040487_4.jpg,20040487_1.jpg,FALSE
+observation_20042079,FALSE ,NA,,,FALSE
+observation_20084581,FALSE ,NA,,,FALSE
+observation_201326726,FALSE ,NA,,,FALSE
+observation_201534217,FALSE ,NA,,,FALSE
+observation_201747845,TRUE ,CW,201747845_4.jpg,201747845_1.jpg,FALSE
+observation_201816493,FALSE ,NA,,,FALSE
+observation_20196027,TRUE ,CW,201747845_2.jpg,201747845_1.jpg,FALSE
+observation_202012611,FALSE ,NA,,,FALSE
+observation_202018048,FALSE ,NA,,,FALSE
+observation_20214823,FALSE ,NA,,,FALSE
+observation_202263682,FALSE ,NA,,,FALSE
+observation_202299354,TRUE ,CW,202299354_2.jpg,202299354_3.jpg,FALSE
+observation_202329862,FALSE ,NA,,,FALSE
+observation_202350994,TRUE ,CW,202350994_2.jpg,202350994_3.jpg,FALSE
+observation_20237795,FALSE ,NA,,,FALSE
+observation_20242470,TRUE ,CW,20242470_1.jpg,20242470_2.jpg,FALSE
+observation_20243953,FALSE ,NA,,,FALSE
+observation_20253242,TRUE ,CW,20253242_2.jpg,20253242_1.jpg,FALSE
+observation_202734466,FALSE ,NA,,,FALSE
+observation_202765766,FALSE ,NA,,,TRUE
+observation_202850308,TRUE ,CW,202850308_1.jpg,202850308_2.jpg,FALSE
+observation_202900677,TRUE ,CW,202900677_1.jpg,202900677_2.jpg,FALSE
+observation_202945599,FALSE ,NA,,,FALSE
+observation_202967387,FALSE ,NA,,,TRUE
+observation_202981721,TRUE ,CW,202981721_2.jpg,202981721_1.jpg,FALSE
+observation_202984091,TRUE ,CW,202984091_1.jpg,202984091_2.jpg,FALSE
+observation_203063594,FALSE ,NA,,,FALSE
+observation_203068638,TRUE ,CW,203068638_2.jpg,203068638_1.jpg,FALSE
+observation_203069180,FALSE ,NA,,,FALSE
+observation_203104781,TRUE ,CW,203104781_2.jpg,203104781_3.jpg,TRUE
+observation_203163714,FALSE ,NA,,,FALSE
+observation_203163725,TRUE ,CW,203163725_1.jpg,203163725_2.jpg,FALSE
+observation_203164505,TRUE ,CW,203164505_1.jpg,203164505_2.jpg,FALSE
+observation_203164834,FALSE ,NA,,,FALSE
+observation_203165735,FALSE ,NA,,,FALSE
+observation_203286923,TRUE ,CW,203286923_1.jpg,203286923_2.jpg,FALSE
+observation_203288194,TRUE ,CW,203288194_2.jpg,203288194_1.jpg,FALSE
+observation_203351879,TRUE ,CW,203351879_3.jpg,203351879_2.jpg,FALSE
+observation_203364467,FALSE ,NA,,,FALSE
+observation_203470364,FALSE ,NA,,,FALSE
+observation_203473252,FALSE ,NA,,,FALSE
+observation_20349054,FALSE ,NA,,,FALSE
+observation_203554140,FALSE ,NA,,,FALSE
+observation_203629417,TRUE ,CW,203629417_1.jpg,203629417_2.jpg,FALSE
+observation_203681573,FALSE ,NA,,,TRUE
+observation_203687978,FALSE ,NA,,,FALSE
+observation_203781798,FALSE ,NA,,,FALSE
+observation_203951205,FALSE ,NA,,,FALSE
+observation_203951906,TRUE ,CW,203951906_1.jpg,203951906_2.jpg,FALSE
+observation_203953722,TRUE ,CW,203953722_1.jpg,203953722_2.jpg,FALSE
+observation_203973192,TRUE ,CW,203973192_3.jpg,203973192_1.jpg,FALSE
+observation_204057409,,,,,
+observation_204112723,,,,,
+observation_204116389,,,,,
+observation_204155838,,,,,
+observation_204160428,,,,,
+observation_204185126,,,,,
+observation_204198216,,,,,
+observation_204220573,,,,,
+observation_204290767,,,,,
+observation_204291814,,,,,
+observation_204303798,,,,,
+observation_204353149,,,,,
+observation_204401203,,,,,
+observation_204555040,,,,,
+observation_204582082,,,,,
+observation_204623928,,,,,
+observation_204624539,,,,,
+observation_204625756,,,,,
+observation_20466694,,,,,
+observation_204735557,,,,,
+observation_204771063,,,,,
+observation_204846473,,,,,
+observation_204961344,,,,,
+observation_204961485,,,,,
+observation_204970309,,,,,
+observation_205001244,,,,,
+observation_205019272,,,,,
+observation_205020365,,,,,
+observation_205021419,,,,,
+observation_205026984,,,,,
+observation_205032973,,,,,
+observation_205036651,,,,,
+observation_205106749,,,,,
+observation_205108132,,,,,
+observation_205110617,,,,,
+observation_205111049,,,,,
+observation_205141152,,,,,
+observation_205169918,,,,,
+observation_205191936,,,,,
+observation_20519625,,,,,
+observation_205284509,,,,,
+observation_205284512,,,,,
+observation_205284513,,,,,
+observation_205285339,,,,,
+observation_205298852,,,,,
+observation_205315795,,,,,
+observation_205316952,,,,,
+observation_205323551,,,,,
+observation_205333055,,,,,
+observation_20534137,,,,,
+observation_205401514,,,,,
+observation_205448869,,,,,
+observation_205450556,,,,,
+observation_20545524,,,,,
+observation_205541022,,,,,
+observation_205558543,,,,,
+observation_205742734,,,,,
+observation_205767184,,,,,
+observation_205812078,,,,,
+observation_205959962,,,,,
+observation_205963827,,,,,
+observation_206144766,,,,,
+observation_206234953,,,,,
+observation_206300854,,,,,
+observation_206362906,,,,,
+observation_206364814,,,,,
+observation_206459004,,,,,
+observation_206550348,,,,,
+observation_20744913,,,,,
+observation_20747020,,,,,
+observation_20756860,,,,,
+observation_20892860,,,,,
+observation_20899989,,,,,
+observation_20917073,,,,,
+observation_20925587,,,,,
+observation_20935409,,,,,
+observation_20963964,,,,,
+observation_20982400,,,,,
+observation_20982847,,,,,
+observation_20983402,,,,,
+observation_20985092,,,,,
+observation_20986435,,,,,
+observation_21000546,,,,,
+observation_21000547,,,,,
+observation_21000551,,,,,
+observation_21004478,,,,,
+observation_21016114,,,,,
+observation_21016117,,,,,
+observation_21016224,,,,,
+observation_21102414,,,,,
+observation_21102480,,,,,
+observation_21115974,,,,,
+observation_21121051,,,,,
+observation_21125626,,,,,
+observation_21126715,,,,,
+observation_21138175,,,,,
+observation_21198076,,,,,
+observation_21203243,,,,,
+observation_21204848,,,,,
+observation_21220586,,,,,
+observation_21220616,,,,,
+observation_21220620,,,,,
+observation_21221126,,,,,
+observation_21267844,,,,,
+observation_21300099,,,,,
+observation_21300102,,,,,
+observation_21370720,,,,,
+observation_21374774,,,,,
+observation_21433987,,,,,
+observation_21435608,,,,,
+observation_21461484,,,,,
+observation_21533855,,,,,
+observation_21536827,,,,,
+observation_21558357,,,,,
+observation_21566152,,,,,
+observation_21655088,,,,,
+observation_21663411,,,,,
+observation_21790736,,,,,
+observation_21803965,,,,,
+observation_21838648,,,,,
+observation_21871420,,,,,
+observation_21883289,,,,,
+observation_21957715,,,,,
+observation_22115355,,,,,
+observation_22372130,,,,,
+observation_22384040,,,,,
+observation_22566719,,,,,
+observation_22639788,,,,,
+observation_22686397,,,,,
+observation_24762373,,,,,
+observation_25345194,,,,,
+observation_25878742,,,,,
+observation_25915271,,,,,
+observation_25975544,,,,,
+observation_25975545,,,,,
+observation_28427082,,,,,
+observation_28427085,,,,,
+observation_28427086,,,,,
+observation_2846226,,,,,
+observation_2907695,,,,,
+observation_32475048,,,,,
+observation_32475049,,,,,
+observation_32882992,,,,,
+observation_32882993,,,,,
+observation_32973073,,,,,
+observation_33058793,,,,,
+observation_33058794,,,,,
+observation_33058799,,,,,
+observation_35436981,,,,,
+observation_35519003,,,,,
+observation_37111175,,,,,
+observation_3749918,,,,,
+observation_38248630,,,,,
+observation_38248677,,,,,
+observation_38375177,,,,,
+observation_38411474,,,,,
+observation_38412087,,,,,
+observation_38798089,,,,,
+observation_38909320,,,,,
+observation_38920785,,,,,
+observation_39056455,,,,,
+observation_39056936,,,,,
+observation_39059596,,,,,
+observation_39061647,,,,,
+observation_39182683,,,,,
+observation_39294667,,,,,
+observation_39377801,,,,,
+observation_39377809,,,,,
+observation_39380484,,,,,
+observation_39382853,,,,,
+observation_39392471,,,,,
+observation_39503544,,,,,
+observation_39522262,,,,,
+observation_39560067,,,,,
+observation_39580421,,,,,
+observation_39599914,,,,,
+observation_39609688,,,,,
+observation_39610165,,,,,
+observation_39610633,,,,,
+observation_39621158,,,,,
+observation_39634001,,,,,
+observation_39663749,,,,,
+observation_39664316,,,,,
+observation_39743403,,,,,
+observation_39769602,,,,,
+observation_39811427,,,,,
+observation_39901397,,,,,
+observation_40011120,,,,,
+observation_40034749,,,,,
+observation_40039643,,,,,
+observation_40046378,,,,,
+observation_40091050,,,,,
+observation_40093484,,,,,
+observation_40106670,,,,,
+observation_40153303,,,,,
+observation_40251899,,,,,
+observation_40263784,,,,,
+observation_40269037,,,,,
+observation_40269599,,,,,
+observation_40322846,,,,,
+observation_40400117,,,,,
+observation_40610679,,,,,
+observation_40657392,,,,,
+observation_40657763,,,,,
+observation_40677677,,,,,
+observation_40725486,,,,,
+observation_40737771,,,,,
+observation_40760907,,,,,
+observation_40906449,,,,,
+observation_40906461,,,,,
+observation_41078443,,,,,
+observation_41079691,,,,,
+observation_41081288,,,,,
+observation_41081299,,,,,
+observation_41081300,,,,,
+observation_41085189,,,,,
+observation_41144230,,,,,
+observation_41153574,,,,,
+observation_41161659,,,,,
+observation_41164665,,,,,
+observation_41340463,,,,,
+observation_41396995,,,,,
+observation_41404922,,,,,
+observation_41418155,,,,,
+observation_41502797,,,,,
+observation_41534952,,,,,
+observation_41535634,,,,,
+observation_41552679,,,,,
+observation_41643776,,,,,
+observation_41658548,,,,,
+observation_41673025,,,,,
+observation_41728991,,,,,
+observation_41789604,,,,,
+observation_41833315,,,,,
+observation_41944220,,,,,
+observation_41950504,,,,,
+observation_42011923,,,,,
+observation_42053048,,,,,
+observation_42124876,,,,,
+observation_42210475,,,,,
+observation_42246090,,,,,
+observation_42266776,,,,,
+observation_42267645,,,,,
+observation_42267650,,,,,
+observation_42279443,,,,,
+observation_42357776,,,,,
+observation_42421063,,,,,
+observation_42429223,,,,,
+observation_42429768,,,,,
+observation_42430248,,,,,
+observation_42604428,,,,,
+observation_42612159,,,,,
+observation_42701313,,,,,
+observation_42702617,,,,,
+observation_42712518,,,,,
+observation_42876839,,,,,
+observation_42904265,,,,,
+observation_42926660,,,,,
+observation_43256693,,,,,
+observation_43726577,,,,,
+observation_43747415,,,,,
+observation_43764486,,,,,
+observation_44309773,,,,,
+observation_44320767,,,,,
+observation_44455000,,,,,
+observation_44498143,,,,,
+observation_44501717,,,,,
+observation_44523786,,,,,
+observation_44752995,,,,,
+observation_45531841,,,,,
+observation_45544634,,,,,
+observation_46308701,,,,,
+observation_46999888,,,,,
+observation_5187404,,,,,
+observation_52074413,,,,,
+observation_5279777,,,,,
+observation_5328861,,,,,
+observation_5364091,,,,,
+observation_5398841,,,,,
+observation_5457746,,,,,
+observation_5458263,,,,,
+observation_5459998,,,,,
+observation_5461276,,,,,
+observation_5489842,,,,,
+observation_5511309,,,,,
+observation_5534487,,,,,
+observation_5534801,,,,,
+observation_5634956,,,,,
+observation_5656868,,,,,
+observation_56858887,,,,,
+observation_5737683,,,,,
+observation_5840710,,,,,
+observation_5841570,,,,,
+observation_6126523,,,,,
+observation_6166737,,,,,
+observation_64864516,,,,,
+observation_66107716,,,,,
+observation_6863870,,,,,
+observation_71452072,,,,,
+observation_71452216,,,,,
+observation_71595632,,,,,
+observation_72029340,,,,,
+observation_72104632,,,,,
+observation_72918115,,,,,
+observation_74874376,,,,,
+observation_74889739,,,,,
+observation_78839025,,,,,
+observation_79294204,,,,,
+observation_9291912,,,,,

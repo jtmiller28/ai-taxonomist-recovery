@@ -1,0 +1,61 @@
+### A annotated txt file noting how we ran bioencoder, it must be done through commmand line in order to avoid some technical errors that exist while running through jupyternotebooks/py-scripts. Annotated sections note steps/instructions, non-annotated are the lines of code in sequential order of running. 
+# note that you will need to have bioencoder and its assiociated dependencies to run this code, instructions for contructing a kernel can be found here: # # https://github.com/agporto/BioEncoder/blob/main/help/01-installation.md
+# All associated YMLs for this proj that delimit the parameters used for training can be found in the dir bioencoder_configs/
+
+### Create a Lateral Model ###
+
+# First Configure the working directory where the data, training, and associated files will be held. 
+bioencoder_configure --root-dir "bioencoder_wd" --run-name "lateral_train_epoch_100"
+
+# Split the dataset with a 80/20 ratio of training/validation images. Do not use this multiple times...
+bioencoder_split_dataset --image-dir "/home/millerjared/blue_bsc4892/millerjared/ai-taxonomist/image_sets/lateral-images/"
+
+# Use YML file of train_stage1 to go through round 1 of training. The params are training batch sizes=30, validation batch size = 21, num threads = 0 (to work for hypergator)  
+bioencoder_train --config-path "/home/millerjared/blue_bsc4892/millerjared/ai-taxonomist/bioencoder_configs/train_stage1.yml"
+
+# Stochastic Weight Averaging (SWA) on top three weights to enhance the generalization of the model. See swa_stage1.yml
+bioencoder_swa --config-path "bioencoder_configs/swa_stage1.yml"
+
+# Learning Rate Finder (NOT RUN): Find the appropriate learning rates for the second stage of training. Use several times due to random initialization. I was unable to get this function to run on the cluster so ignore this step!!! Here for completion and troubleshooting in the future
+#bioencoder_lr_finder --config-path "bioencoder_configs/lr_finder.yml"
+
+# Use YML file of train_stage2 to go through round 2 of training. The params are training batch sizes=30, validation batch size = 21, num threads = 0 (to work for hypergator)  
+bioencoder_train --config-path "/home/millerjared/blue_bsc4892/millerjared/ai-taxonomist/bioencoder_configs/train_stage2.yml"
+
+# Stochastic Weight Averaging (SWA) on top three weights to enhance the generalization of the model. See swa_stage2.yml
+bioencoder_swa --config-path "bioencoder_configs/swa_stage2.yml"
+
+
+### Create a Dorsal Model ###
+
+# First Configure the working directory where the data, training, and associated files will be held. 
+bioencoder_configure --root-dir "bioencoder_wd" --run-name "dorsal_train_epoch_100"
+
+# Split the dataset with a 80/20 ratio of training/validation images. Do not use this multiple times...
+bioencoder_split_dataset --image-dir "/home/millerjared/blue_bsc4892/millerjared/ai-taxonomist/image_sets/dorsal-images/"
+
+# Use YML file of train_stage1 to go through round 1 of training. The params are training batch sizes=30, validation batch size = 21, num threads = 0 (to work for hypergator)  
+bioencoder_train --config-path "/home/millerjared/blue_bsc4892/millerjared/ai-taxonomist/bioencoder_configs/train_stage1.yml"
+
+# Stochastic Weight Averaging (SWA) on top three weights to enhance the generalization of the model. See swa_stage1.yml
+bioencoder_swa --config-path "bioencoder_configs/swa_stage1.yml"
+
+# Learning Rate Finder (NOT RUN): Find the appropriate learning rates for the second stage of training. Use several times due to random initialization. I was unable to get this function to run on the cluster so ignore this step!!! Here for completion and troubleshooting in the future
+#bioencoder_lr_finder --config-path "bioencoder_configs/lr_finder.yml"
+
+# Use YML file of train_stage2 to go through round 2 of training. The params are training batch sizes=30, validation batch size = 21, num threads = 0 (to work for hypergator)  
+bioencoder_train --config-path "/home/millerjared/blue_bsc4892/millerjared/ai-taxonomist/bioencoder_configs/train_stage2.yml"
+
+# Stochastic Weight Averaging (SWA) on top three weights to enhance the generalization of the model. See swa_stage2.yml
+bioencoder_swa --config-path "bioencoder_configs/swa_stage2.yml"
+
+
+### Explore models:
+# To see the pca plots, you need to configure into the directory for the model of interest using either: 
+bioencoder_configure --root-dir "bioencoder_wd" --run-name "lateral_train_epoch_100"
+bioencoder_configure --root-dir "bioencoder_wd" --run-name "dorsal_train_epoch_100"
+bioencoder_interactive_plots --config-path "bioencoder_configs/plot_stage1.yml"
+# This will save plots into the /plot dir of bioencoder_wd, which you can then view by opening via jupyternotebooks and selecting 'trust html' 
+
+# To see heatmaps and contrastive cams for the model you can use the following while in the dir of interest. 
+bioencoder_model_explorer --config-path "bioencoder_configs/explore_stage2.yml" 
