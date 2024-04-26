@@ -1,0 +1,2879 @@
+2024-04-25 22:10:26: ########################### Training first stage  ###########################
+2024-04-25 22:10:26: Dataset:
+{
+    'data_dir': 'bioencoder_wd/data/dorsal_train_epoch_100',
+    'train': {'rn-images': 196, 'cw-images': 194},
+    'val': {'rn-images': 21, 'cw-images': 21}
+}
+2024-04-25 22:10:26: Hyperparameters:
+{
+    'model': {
+        'backbone': 'timm_tf_efficientnet_b5.ns_jft_in1k',
+        'ckpt_pretrained': None,
+        'num_classes': None
+    },
+    'train': {
+        'n_epochs': 100,
+        'amp': True,
+        'ema': True,
+        'ema_decay_per_epoch': 0.4,
+        'target_metric': 'precision_at_1',
+        'stage': 'first'
+    },
+    'dataloaders': {
+        'train_batch_size': 30,
+        'valid_batch_size': 21,
+        'num_workers': 0
+    },
+    'optimizer': {'name': 'SGD', 'params': {'lr': 0.003}},
+    'scheduler': {
+        'name': 'CosineAnnealingLR',
+        'params': {'T_max': 100, 'eta_min': 0.0003}
+    },
+    'criterion': {'name': 'SupCon', 'params': {'temperature': 0.1}},
+    'img_size': 384,
+    'augmentations': {
+        'transforms': [
+            {
+                'RandomResizedCrop': {
+                    'height': 384,
+                    'width': 384,
+                    'scale': (0.7, 1)
+                }
+            },
+            {'Flip': None},
+            {'RandomRotate90': None},
+            {'MedianBlur': {'blur_limit': 3, 'p': 0.3}},
+            {'ShiftScaleRotate': {'p': 0.4}},
+            {'OpticalDistortion': None},
+            {'GridDistortion': None},
+            {'HueSaturationValue': None}
+        ]
+    }
+}
+2024-04-25 22:10:32: Loading pretrained weights from Hugging Face hub (timm/tf_efficientnet_b5.ns_jft_in1k)
+2024-04-25 22:10:33: [timm/tf_efficientnet_b5.ns_jft_in1k] Safe alternative available for 'pytorch_model.bin' (as 'model.safetensors'). Loading weights using safetensors.
+2024-04-25 22:10:39: ------------------------------ START - Epoch 0 ------------------------------
+2024-04-25 22:13:37: running k-nn with k=1
+2024-04-25 22:13:37: embedding dimensionality is 128
+2024-04-25 22:13:40: running k-means clustering with k=2
+2024-04-25 22:13:40: embedding dimensionality is 128
+2024-04-25 22:13:53: running k-nn with k=1
+2024-04-25 22:13:53: embedding dimensionality is 2048
+2024-04-25 22:13:53: running k-means clustering with k=2
+2024-04-25 22:13:53: embedding dimensionality is 2048
+2024-04-25 22:13:56: Summary epoch 0:
+train time 152.85
+valid time 44.19
+train loss 5.99
+valid acc projection head {
+    'AMI': 0.04755742008528268,
+    'NMI': 0.0649415270813734,
+    'mean_average_precision': 0.0036580906294771225,
+    'mean_reciprocal_rank': 0.7142857313156128,
+    'precision_at_1': 0.7142857142857142
+}
+valid acc encoder {
+    'AMI': -0.03919503185872406,
+    'NMI': 0.0,
+    'mean_average_precision': 0.003418893330528087,
+    'mean_reciprocal_rank': 0.6666666865348816,
+    'precision_at_1': 0.6666666666666666
+}
+2024-04-25 22:13:56: precision_at_1 increased (0.000000 --> 0.714286).  Saving model ...
+2024-04-25 22:13:57: ------------------------------- END - Epoch 0 -------------------------------
+2024-04-25 22:13:58: ------------------------------ START - Epoch 1 ------------------------------
+2024-04-25 22:14:30: running k-nn with k=1
+2024-04-25 22:14:30: embedding dimensionality is 128
+2024-04-25 22:14:30: running k-means clustering with k=2
+2024-04-25 22:14:30: embedding dimensionality is 128
+2024-04-25 22:14:40: running k-nn with k=1
+2024-04-25 22:14:40: embedding dimensionality is 2048
+2024-04-25 22:14:40: running k-means clustering with k=2
+2024-04-25 22:14:40: embedding dimensionality is 2048
+2024-04-25 22:14:41: Summary epoch 1:
+train time 22.36
+valid time 21.06
+train loss 5.87
+valid acc projection head {
+    'AMI': -0.011464176634164967,
+    'NMI': 0.006573146189408668,
+    'mean_average_precision': 0.003911063689098614,
+    'mean_reciprocal_rank': 0.761904776096344,
+    'precision_at_1': 0.7619047619047619
+}
+valid acc encoder {
+    'AMI': -0.010949568920846722,
+    'NMI': 0.00863441195524167,
+    'mean_average_precision': 0.003664352338873693,
+    'mean_reciprocal_rank': 0.7142857313156128,
+    'precision_at_1': 0.7142857142857142
+}
+2024-04-25 22:14:41: precision_at_1 increased (0.714286 --> 0.761905).  Saving model ...
+2024-04-25 22:14:41: ------------------------------- END - Epoch 1 -------------------------------
+2024-04-25 22:14:41: ------------------------------ START - Epoch 2 ------------------------------
+2024-04-25 22:15:07: running k-nn with k=1
+2024-04-25 22:15:07: embedding dimensionality is 128
+2024-04-25 22:15:07: running k-means clustering with k=2
+2024-04-25 22:15:07: embedding dimensionality is 128
+2024-04-25 22:15:17: running k-nn with k=1
+2024-04-25 22:15:17: embedding dimensionality is 2048
+2024-04-25 22:15:17: running k-means clustering with k=2
+2024-04-25 22:15:17: embedding dimensionality is 2048
+2024-04-25 22:15:18: Summary epoch 2:
+train time 18.59
+valid time 17.52
+train loss 5.83
+valid acc projection head {
+    'AMI': -0.018156669264964998,
+    'NMI': 0.0,
+    'mean_average_precision': 0.003178443689699738,
+    'mean_reciprocal_rank': 0.6190476417541504,
+    'precision_at_1': 0.6190476190476191
+}
+valid acc encoder {
+    'AMI': -0.0018825296282279438,
+    'NMI': 0.016607455512618385,
+    'mean_average_precision': 0.0034226503561660304,
+    'mean_reciprocal_rank': 0.6666666865348816,
+    'precision_at_1': 0.6666666666666666
+}
+2024-04-25 22:15:18: ------------------------------- END - Epoch 2 -------------------------------
+2024-04-25 22:15:18: ------------------------------ START - Epoch 3 ------------------------------
+2024-04-25 22:15:45: running k-nn with k=1
+2024-04-25 22:15:45: embedding dimensionality is 128
+2024-04-25 22:15:45: running k-means clustering with k=2
+2024-04-25 22:15:45: embedding dimensionality is 128
+2024-04-25 22:15:59: running k-nn with k=1
+2024-04-25 22:15:59: embedding dimensionality is 2048
+2024-04-25 22:15:59: running k-means clustering with k=2
+2024-04-25 22:15:59: embedding dimensionality is 2048
+2024-04-25 22:16:00: Summary epoch 3:
+train time 17.02
+valid time 25.13
+train loss 5.81
+valid acc projection head {
+    'AMI': -0.001882529628227949,
+    'NMI': 0.016607455512618385,
+    'mean_average_precision': 0.004032540851392103,
+    'mean_reciprocal_rank': 0.785714328289032,
+    'precision_at_1': 0.7857142857142857
+}
+valid acc encoder {
+    'AMI': -0.0018825296282279438,
+    'NMI': 0.016607455512618385,
+    'mean_average_precision': 0.003907306663460672,
+    'mean_reciprocal_rank': 0.761904776096344,
+    'precision_at_1': 0.7619047619047619
+}
+2024-04-25 22:16:00: precision_at_1 increased (0.761905 --> 0.785714).  Saving model ...
+2024-04-25 22:16:00: ------------------------------- END - Epoch 3 -------------------------------
+2024-04-25 22:16:00: ------------------------------ START - Epoch 4 ------------------------------
+2024-04-25 22:16:36: running k-nn with k=1
+2024-04-25 22:16:36: embedding dimensionality is 128
+2024-04-25 22:16:36: running k-means clustering with k=2
+2024-04-25 22:16:36: embedding dimensionality is 128
+2024-04-25 22:16:46: running k-nn with k=1
+2024-04-25 22:16:46: embedding dimensionality is 2048
+2024-04-25 22:16:46: running k-means clustering with k=2
+2024-04-25 22:16:46: embedding dimensionality is 2048
+2024-04-25 22:16:46: Summary epoch 4:
+train time 20.41
+valid time 25.44
+train loss 5.79
+valid acc projection head {
+    'AMI': 0.010498838047770466,
+    'NMI': 0.028559343147903548,
+    'mean_average_precision': 0.0037883341849258107,
+    'mean_reciprocal_rank': 0.738095223903656,
+    'precision_at_1': 0.738095238095238
+}
+valid acc encoder {
+    'AMI': 0.010498838047770466,
+    'NMI': 0.028559343147903548,
+    'mean_average_precision': 0.003785829501167183,
+    'mean_reciprocal_rank': 0.738095223903656,
+    'precision_at_1': 0.738095238095238
+}
+2024-04-25 22:16:46: ------------------------------- END - Epoch 4 -------------------------------
+2024-04-25 22:16:46: ------------------------------ START - Epoch 5 ------------------------------
+2024-04-25 22:17:11: running k-nn with k=1
+2024-04-25 22:17:11: embedding dimensionality is 128
+2024-04-25 22:17:11: running k-means clustering with k=2
+2024-04-25 22:17:11: embedding dimensionality is 128
+2024-04-25 22:17:22: running k-nn with k=1
+2024-04-25 22:17:22: embedding dimensionality is 2048
+2024-04-25 22:17:23: running k-means clustering with k=2
+2024-04-25 22:17:23: embedding dimensionality is 2048
+2024-04-25 22:17:23: Summary epoch 5:
+train time 13.01
+valid time 24.06
+train loss 5.74
+valid acc projection head {
+    'AMI': 0.02587553936939027,
+    'NMI': 0.04349864573523841,
+    'mean_average_precision': 0.0037895865268051253,
+    'mean_reciprocal_rank': 0.738095223903656,
+    'precision_at_1': 0.738095238095238
+}
+valid acc encoder {
+    'AMI': -0.011363136372765828,
+    'NMI': 0.007096396354320291,
+    'mean_average_precision': 0.004275495175979081,
+    'mean_reciprocal_rank': 0.8333333730697632,
+    'precision_at_1': 0.8333333333333333
+}
+2024-04-25 22:17:23: ------------------------------- END - Epoch 5 -------------------------------
+2024-04-25 22:17:23: ------------------------------ START - Epoch 6 ------------------------------
+2024-04-25 22:17:50: running k-nn with k=1
+2024-04-25 22:17:50: embedding dimensionality is 128
+2024-04-25 22:17:50: running k-means clustering with k=2
+2024-04-25 22:17:50: embedding dimensionality is 128
+2024-04-25 22:18:02: running k-nn with k=1
+2024-04-25 22:18:02: embedding dimensionality is 2048
+2024-04-25 22:18:02: running k-means clustering with k=2
+2024-04-25 22:18:02: embedding dimensionality is 2048
+2024-04-25 22:18:03: Summary epoch 6:
+train time 16.53
+valid time 22.98
+train loss 5.70
+valid acc projection head {
+    'AMI': 0.2462048737919822,
+    'NMI': 0.2597499579819815,
+    'mean_average_precision': 0.003909811347219299,
+    'mean_reciprocal_rank': 0.761904776096344,
+    'precision_at_1': 0.7619047619047619
+}
+valid acc encoder {
+    'AMI': -0.0018825296282279438,
+    'NMI': 0.016607455512618385,
+    'mean_average_precision': 0.003418893330528087,
+    'mean_reciprocal_rank': 0.6666666865348816,
+    'precision_at_1': 0.6666666666666666
+}
+2024-04-25 22:18:03: ------------------------------- END - Epoch 6 -------------------------------
+2024-04-25 22:18:03: ------------------------------ START - Epoch 7 ------------------------------
+2024-04-25 22:18:34: running k-nn with k=1
+2024-04-25 22:18:34: embedding dimensionality is 128
+2024-04-25 22:18:34: running k-means clustering with k=2
+2024-04-25 22:18:34: embedding dimensionality is 128
+2024-04-25 22:18:44: running k-nn with k=1
+2024-04-25 22:18:44: embedding dimensionality is 2048
+2024-04-25 22:18:44: running k-means clustering with k=2
+2024-04-25 22:18:44: embedding dimensionality is 2048
+2024-04-25 22:18:45: Summary epoch 7:
+train time 19.41
+valid time 22.48
+train loss 5.69
+valid acc projection head {
+    'AMI': 0.30057280852813073,
+    'NMI': 0.3136556660357203,
+    'mean_average_precision': 0.004032540851392103,
+    'mean_reciprocal_rank': 0.785714328289032,
+    'precision_at_1': 0.7857142857142857
+}
+valid acc encoder {
+    'AMI': -0.011363136372765828,
+    'NMI': 0.007096396354320291,
+    'mean_average_precision': 0.003547884544097462,
+    'mean_reciprocal_rank': 0.6904761791229248,
+    'precision_at_1': 0.6904761904761905
+}
+2024-04-25 22:18:45: precision_at_1 increased (0.785714 --> 0.785714).  Saving model ...
+2024-04-25 22:18:45: ------------------------------- END - Epoch 7 -------------------------------
+2024-04-25 22:18:45: ------------------------------ START - Epoch 8 ------------------------------
+2024-04-25 22:19:14: running k-nn with k=1
+2024-04-25 22:19:14: embedding dimensionality is 128
+2024-04-25 22:19:14: running k-means clustering with k=2
+2024-04-25 22:19:14: embedding dimensionality is 128
+2024-04-25 22:19:23: running k-nn with k=1
+2024-04-25 22:19:23: embedding dimensionality is 2048
+2024-04-25 22:19:23: running k-means clustering with k=2
+2024-04-25 22:19:23: embedding dimensionality is 2048
+2024-04-25 22:19:23: Summary epoch 8:
+train time 18.90
+valid time 18.82
+train loss 5.63
+valid acc projection head {
+    'AMI': 0.34144388891047023,
+    'NMI': 0.35359770170624516,
+    'mean_average_precision': 0.004276747517858395,
+    'mean_reciprocal_rank': 0.8333333730697632,
+    'precision_at_1': 0.8333333333333333
+}
+valid acc encoder {
+    'AMI': -0.011363136372765828,
+    'NMI': 0.007096396354320291,
+    'mean_average_precision': 0.0034226503561660304,
+    'mean_reciprocal_rank': 0.6666666865348816,
+    'precision_at_1': 0.6666666666666666
+}
+2024-04-25 22:19:23: precision_at_1 increased (0.785714 --> 0.833333).  Saving model ...
+2024-04-25 22:19:23: ------------------------------- END - Epoch 8 -------------------------------
+2024-04-25 22:19:23: ------------------------------ START - Epoch 9 ------------------------------
+2024-04-25 22:20:02: running k-nn with k=1
+2024-04-25 22:20:02: embedding dimensionality is 128
+2024-04-25 22:20:02: running k-means clustering with k=2
+2024-04-25 22:20:02: embedding dimensionality is 128
+2024-04-25 22:20:17: running k-nn with k=1
+2024-04-25 22:20:17: embedding dimensionality is 2048
+2024-04-25 22:20:17: running k-means clustering with k=2
+2024-04-25 22:20:17: embedding dimensionality is 2048
+2024-04-25 22:20:19: Summary epoch 9:
+train time 22.12
+valid time 33.71
+train loss 5.60
+valid acc projection head {
+    'AMI': 0.34144388891047023,
+    'NMI': 0.35359770170624516,
+    'mean_average_precision': 0.004274242834099767,
+    'mean_reciprocal_rank': 0.8333333730697632,
+    'precision_at_1': 0.8333333333333333
+}
+valid acc encoder {
+    'AMI': -0.002595228282364706,
+    'NMI': 0.01554294919289733,
+    'mean_average_precision': 0.0037883341849258107,
+    'mean_reciprocal_rank': 0.738095223903656,
+    'precision_at_1': 0.738095238095238
+}
+2024-04-25 22:20:19: precision_at_1 increased (0.833333 --> 0.833333).  Saving model ...
+2024-04-25 22:20:19: ------------------------------- END - Epoch 9 -------------------------------
+2024-04-25 22:20:19: ----------------------------- START - Epoch 10 ------------------------------
+2024-04-25 22:20:53: running k-nn with k=1
+2024-04-25 22:20:53: embedding dimensionality is 128
+2024-04-25 22:20:53: running k-means clustering with k=2
+2024-04-25 22:20:53: embedding dimensionality is 128
+2024-04-25 22:21:02: running k-nn with k=1
+2024-04-25 22:21:02: embedding dimensionality is 2048
+2024-04-25 22:21:02: running k-means clustering with k=2
+2024-04-25 22:21:02: embedding dimensionality is 2048
+2024-04-25 22:21:02: Summary epoch 10:
+train time 22.95
+valid time 19.92
+train loss 5.58
+valid acc projection head {
+    'AMI': 0.4904305141905373,
+    'NMI': 0.4995870626291897,
+    'mean_average_precision': 0.0043969723382725695,
+    'mean_reciprocal_rank': 0.8571428656578064,
+    'precision_at_1': 0.8571428571428571
+}
+valid acc encoder {
+    'AMI': 0.00929639408801801,
+    'NMI': 0.027098530614051364,
+    'mean_average_precision': 0.0033011731938725414,
+    'mean_reciprocal_rank': 0.6428571343421936,
+    'precision_at_1': 0.6428571428571428
+}
+2024-04-25 22:21:02: precision_at_1 increased (0.833333 --> 0.857143).  Saving model ...
+2024-04-25 22:21:03: ------------------------------ END - Epoch 10 -------------------------------
+2024-04-25 22:21:03: ----------------------------- START - Epoch 11 ------------------------------
+2024-04-25 22:21:30: running k-nn with k=1
+2024-04-25 22:21:30: embedding dimensionality is 128
+2024-04-25 22:21:30: running k-means clustering with k=2
+2024-04-25 22:21:30: embedding dimensionality is 128
+2024-04-25 22:21:38: running k-nn with k=1
+2024-04-25 22:21:38: embedding dimensionality is 2048
+2024-04-25 22:21:38: running k-means clustering with k=2
+2024-04-25 22:21:38: embedding dimensionality is 2048
+2024-04-25 22:21:39: Summary epoch 11:
+train time 15.30
+valid time 20.40
+train loss 5.50
+valid acc projection head {
+    'AMI': 0.4904305141905373,
+    'NMI': 0.4995870626291897,
+    'mean_average_precision': 0.004518449500566058,
+    'mean_reciprocal_rank': 0.8809524178504944,
+    'precision_at_1': 0.8809523809523809
+}
+valid acc encoder {
+    'AMI': 0.024374575442911692,
+    'NMI': 0.04182227904833262,
+    'mean_average_precision': 0.0037895865268051253,
+    'mean_reciprocal_rank': 0.738095223903656,
+    'precision_at_1': 0.738095238095238
+}
+2024-04-25 22:21:39: precision_at_1 increased (0.857143 --> 0.880952).  Saving model ...
+2024-04-25 22:21:39: ------------------------------ END - Epoch 11 -------------------------------
+2024-04-25 22:21:39: ----------------------------- START - Epoch 12 ------------------------------
+2024-04-25 22:22:12: running k-nn with k=1
+2024-04-25 22:22:12: embedding dimensionality is 128
+2024-04-25 22:22:12: running k-means clustering with k=2
+2024-04-25 22:22:12: embedding dimensionality is 128
+2024-04-25 22:22:21: running k-nn with k=1
+2024-04-25 22:22:21: embedding dimensionality is 2048
+2024-04-25 22:22:21: running k-means clustering with k=2
+2024-04-25 22:22:21: embedding dimensionality is 2048
+2024-04-25 22:22:22: Summary epoch 12:
+train time 19.48
+valid time 22.73
+train loss 5.48
+valid acc projection head {
+    'AMI': 0.5533648916621032,
+    'NMI': 0.5613523392971342,
+    'mean_average_precision': 0.004155270355564906,
+    'mean_reciprocal_rank': 0.8095238208770752,
+    'precision_at_1': 0.8095238095238095
+}
+valid acc encoder {
+    'AMI': 0.024374575442911692,
+    'NMI': 0.04182227904833262,
+    'mean_average_precision': 0.0035453798603388336,
+    'mean_reciprocal_rank': 0.6904761791229248,
+    'precision_at_1': 0.6904761904761905
+}
+2024-04-25 22:22:22: ------------------------------ END - Epoch 12 -------------------------------
+2024-04-25 22:22:22: ----------------------------- START - Epoch 13 ------------------------------
+2024-04-25 22:23:00: running k-nn with k=1
+2024-04-25 22:23:00: embedding dimensionality is 128
+2024-04-25 22:23:00: running k-means clustering with k=2
+2024-04-25 22:23:00: embedding dimensionality is 128
+2024-04-25 22:23:11: running k-nn with k=1
+2024-04-25 22:23:11: embedding dimensionality is 2048
+2024-04-25 22:23:11: running k-means clustering with k=2
+2024-04-25 22:23:11: embedding dimensionality is 2048
+2024-04-25 22:23:11: Summary epoch 13:
+train time 23.09
+valid time 26.37
+train loss 5.45
+valid acc projection head {
+    'AMI': 0.6272797683152161,
+    'NMI': 0.6339264447839243,
+    'mean_average_precision': 0.004274242834099766,
+    'mean_reciprocal_rank': 0.8333333730697632,
+    'precision_at_1': 0.8333333333333333
+}
+valid acc encoder {
+    'AMI': 0.12314363218259906,
+    'NMI': 0.13882498859779235,
+    'mean_average_precision': 0.004031288509512788,
+    'mean_reciprocal_rank': 0.785714328289032,
+    'precision_at_1': 0.7857142857142857
+}
+2024-04-25 22:23:11: ------------------------------ END - Epoch 13 -------------------------------
+2024-04-25 22:23:11: ----------------------------- START - Epoch 14 ------------------------------
+2024-04-25 22:23:34: running k-nn with k=1
+2024-04-25 22:23:34: embedding dimensionality is 128
+2024-04-25 22:23:34: running k-means clustering with k=2
+2024-04-25 22:23:34: embedding dimensionality is 128
+2024-04-25 22:23:44: running k-nn with k=1
+2024-04-25 22:23:44: embedding dimensionality is 2048
+2024-04-25 22:23:44: running k-means clustering with k=2
+2024-04-25 22:23:44: embedding dimensionality is 2048
+2024-04-25 22:23:45: Summary epoch 14:
+train time 12.95
+valid time 20.36
+train loss 5.43
+valid acc projection head {
+    'AMI': 0.6272797683152161,
+    'NMI': 0.6339264447839243,
+    'mean_average_precision': 0.004641179004738862,
+    'mean_reciprocal_rank': 0.9047619104385376,
+    'precision_at_1': 0.9047619047619047
+}
+valid acc encoder {
+    'AMI': 0.12314363218259906,
+    'NMI': 0.13882498859779235,
+    'mean_average_precision': 0.0032986685101139127,
+    'mean_reciprocal_rank': 0.6428571343421936,
+    'precision_at_1': 0.6428571428571428
+}
+2024-04-25 22:23:45: precision_at_1 increased (0.880952 --> 0.904762).  Saving model ...
+2024-04-25 22:23:45: ------------------------------ END - Epoch 14 -------------------------------
+2024-04-25 22:23:45: ----------------------------- START - Epoch 15 ------------------------------
+2024-04-25 22:24:14: running k-nn with k=1
+2024-04-25 22:24:14: embedding dimensionality is 128
+2024-04-25 22:24:14: running k-means clustering with k=2
+2024-04-25 22:24:14: embedding dimensionality is 128
+2024-04-25 22:24:22: running k-nn with k=1
+2024-04-25 22:24:22: embedding dimensionality is 2048
+2024-04-25 22:24:22: running k-means clustering with k=2
+2024-04-25 22:24:22: embedding dimensionality is 2048
+2024-04-25 22:24:23: Summary epoch 15:
+train time 19.91
+valid time 17.52
+train loss 5.40
+valid acc projection head {
+    'AMI': 0.6272797683152161,
+    'NMI': 0.6339264447839243,
+    'mean_average_precision': 0.0043969723382725695,
+    'mean_reciprocal_rank': 0.8571428656578064,
+    'precision_at_1': 0.8571428571428571
+}
+valid acc encoder {
+    'AMI': 0.12314363218259906,
+    'NMI': 0.13882498859779235,
+    'mean_average_precision': 0.0035441275184595186,
+    'mean_reciprocal_rank': 0.6904761791229248,
+    'precision_at_1': 0.6904761904761905
+}
+2024-04-25 22:24:23: ------------------------------ END - Epoch 15 -------------------------------
+2024-04-25 22:24:23: ----------------------------- START - Epoch 16 ------------------------------
+2024-04-25 22:24:50: running k-nn with k=1
+2024-04-25 22:24:50: embedding dimensionality is 128
+2024-04-25 22:24:50: running k-means clustering with k=2
+2024-04-25 22:24:50: embedding dimensionality is 128
+2024-04-25 22:25:02: running k-nn with k=1
+2024-04-25 22:25:02: embedding dimensionality is 2048
+2024-04-25 22:25:02: running k-means clustering with k=2
+2024-04-25 22:25:02: embedding dimensionality is 2048
+2024-04-25 22:25:02: Summary epoch 16:
+train time 17.06
+valid time 22.16
+train loss 5.38
+valid acc projection head {
+    'AMI': 0.5533648916621032,
+    'NMI': 0.5613523392971342,
+    'mean_average_precision': 0.004641179004738862,
+    'mean_reciprocal_rank': 0.9047619104385376,
+    'precision_at_1': 0.9047619047619047
+}
+valid acc encoder {
+    'AMI': 0.06504697115642685,
+    'NMI': 0.08170416594551018,
+    'mean_average_precision': 0.003420145672407402,
+    'mean_reciprocal_rank': 0.6666666865348816,
+    'precision_at_1': 0.6666666666666666
+}
+2024-04-25 22:25:02: precision_at_1 increased (0.904762 --> 0.904762).  Saving model ...
+2024-04-25 22:25:03: ------------------------------ END - Epoch 16 -------------------------------
+2024-04-25 22:25:03: ----------------------------- START - Epoch 17 ------------------------------
+2024-04-25 22:25:28: running k-nn with k=1
+2024-04-25 22:25:29: embedding dimensionality is 128
+2024-04-25 22:25:29: running k-means clustering with k=2
+2024-04-25 22:25:29: embedding dimensionality is 128
+2024-04-25 22:25:36: running k-nn with k=1
+2024-04-25 22:25:36: embedding dimensionality is 2048
+2024-04-25 22:25:36: running k-means clustering with k=2
+2024-04-25 22:25:36: embedding dimensionality is 2048
+2024-04-25 22:25:36: Summary epoch 17:
+train time 14.06
+valid time 18.56
+train loss 5.40
+valid acc projection head {
+    'AMI': 0.5533648916621032,
+    'NMI': 0.5613523392971342,
+    'mean_average_precision': 0.00476265616703235,
+    'mean_reciprocal_rank': 0.9285714626312256,
+    'precision_at_1': 0.9285714285714285
+}
+valid acc encoder {
+    'AMI': 0.12314363218259906,
+    'NMI': 0.13882498859779235,
+    'mean_average_precision': 0.004276747517858395,
+    'mean_reciprocal_rank': 0.8333333730697632,
+    'precision_at_1': 0.8333333333333333
+}
+2024-04-25 22:25:36: precision_at_1 increased (0.904762 --> 0.928571).  Saving model ...
+2024-04-25 22:25:36: ------------------------------ END - Epoch 17 -------------------------------
+2024-04-25 22:25:36: ----------------------------- START - Epoch 18 ------------------------------
+2024-04-25 22:26:04: running k-nn with k=1
+2024-04-25 22:26:04: embedding dimensionality is 128
+2024-04-25 22:26:04: running k-means clustering with k=2
+2024-04-25 22:26:04: embedding dimensionality is 128
+2024-04-25 22:26:12: running k-nn with k=1
+2024-04-25 22:26:12: embedding dimensionality is 2048
+2024-04-25 22:26:12: running k-means clustering with k=2
+2024-04-25 22:26:12: embedding dimensionality is 2048
+2024-04-25 22:26:12: Summary epoch 18:
+train time 17.45
+valid time 18.12
+train loss 5.33
+valid acc projection head {
+    'AMI': 0.6272797683152161,
+    'NMI': 0.6339264447839243,
+    'mean_average_precision': 0.0043969723382725695,
+    'mean_reciprocal_rank': 0.8571428656578064,
+    'precision_at_1': 0.8571428571428571
+}
+valid acc encoder {
+    'AMI': 0.12314363218259906,
+    'NMI': 0.13882498859779235,
+    'mean_average_precision': 0.0037870818430464966,
+    'mean_reciprocal_rank': 0.738095223903656,
+    'precision_at_1': 0.738095238095238
+}
+2024-04-25 22:26:12: ------------------------------ END - Epoch 18 -------------------------------
+2024-04-25 22:26:12: ----------------------------- START - Epoch 19 ------------------------------
+2024-04-25 22:26:41: running k-nn with k=1
+2024-04-25 22:26:41: embedding dimensionality is 128
+2024-04-25 22:26:41: running k-means clustering with k=2
+2024-04-25 22:26:41: embedding dimensionality is 128
+2024-04-25 22:26:54: running k-nn with k=1
+2024-04-25 22:26:54: embedding dimensionality is 2048
+2024-04-25 22:26:54: running k-means clustering with k=2
+2024-04-25 22:26:54: embedding dimensionality is 2048
+2024-04-25 22:26:55: Summary epoch 19:
+train time 16.97
+valid time 26.25
+train loss 5.34
+valid acc projection head {
+    'AMI': 0.6272797683152161,
+    'NMI': 0.6339264447839243,
+    'mean_average_precision': 0.004519701842445373,
+    'mean_reciprocal_rank': 0.8809524178504944,
+    'precision_at_1': 0.8809523809523809
+}
+valid acc encoder {
+    'AMI': 0.12314363218259906,
+    'NMI': 0.13882498859779235,
+    'mean_average_precision': 0.004030036167633475,
+    'mean_reciprocal_rank': 0.785714328289032,
+    'precision_at_1': 0.7857142857142857
+}
+2024-04-25 22:26:55: ------------------------------ END - Epoch 19 -------------------------------
+2024-04-25 22:26:55: ----------------------------- START - Epoch 20 ------------------------------
+2024-04-25 22:27:29: running k-nn with k=1
+2024-04-25 22:27:29: embedding dimensionality is 128
+2024-04-25 22:27:29: running k-means clustering with k=2
+2024-04-25 22:27:29: embedding dimensionality is 128
+2024-04-25 22:27:43: running k-nn with k=1
+2024-04-25 22:27:43: embedding dimensionality is 2048
+2024-04-25 22:27:43: running k-means clustering with k=2
+2024-04-25 22:27:43: embedding dimensionality is 2048
+2024-04-25 22:27:43: Summary epoch 20:
+train time 23.89
+valid time 23.86
+train loss 5.29
+valid acc projection head {
+    'AMI': 0.5380535881495888,
+    'NMI': 0.546283660813055,
+    'mean_average_precision': 0.004399477022031198,
+    'mean_reciprocal_rank': 0.8571428656578064,
+    'precision_at_1': 0.8571428571428571
+}
+valid acc encoder {
+    'AMI': 0.12314363218259906,
+    'NMI': 0.13882498859779235,
+    'mean_average_precision': 0.003421398014286716,
+    'mean_reciprocal_rank': 0.6666666865348816,
+    'precision_at_1': 0.6666666666666666
+}
+2024-04-25 22:27:43: ------------------------------ END - Epoch 20 -------------------------------
+2024-04-25 22:27:43: ----------------------------- START - Epoch 21 ------------------------------
+2024-04-25 22:28:10: running k-nn with k=1
+2024-04-25 22:28:10: embedding dimensionality is 128
+2024-04-25 22:28:10: running k-means clustering with k=2
+2024-04-25 22:28:10: embedding dimensionality is 128
+2024-04-25 22:28:18: running k-nn with k=1
+2024-04-25 22:28:18: embedding dimensionality is 2048
+2024-04-25 22:28:18: running k-means clustering with k=2
+2024-04-25 22:28:18: embedding dimensionality is 2048
+2024-04-25 22:28:18: Summary epoch 21:
+train time 17.34
+valid time 17.59
+train loss 5.26
+valid acc projection head {
+    'AMI': 0.5380535881495888,
+    'NMI': 0.546283660813055,
+    'mean_average_precision': 0.004274242834099766,
+    'mean_reciprocal_rank': 0.8333333730697632,
+    'precision_at_1': 0.8333333333333333
+}
+valid acc encoder {
+    'AMI': 0.12314363218259906,
+    'NMI': 0.13882498859779235,
+    'mean_average_precision': 0.004154018013685592,
+    'mean_reciprocal_rank': 0.8095238208770752,
+    'precision_at_1': 0.8095238095238095
+}
+2024-04-25 22:28:18: ------------------------------ END - Epoch 21 -------------------------------
+2024-04-25 22:28:18: ----------------------------- START - Epoch 22 ------------------------------
+2024-04-25 22:28:43: running k-nn with k=1
+2024-04-25 22:28:43: embedding dimensionality is 128
+2024-04-25 22:28:43: running k-means clustering with k=2
+2024-04-25 22:28:43: embedding dimensionality is 128
+2024-04-25 22:28:51: running k-nn with k=1
+2024-04-25 22:28:51: embedding dimensionality is 2048
+2024-04-25 22:28:51: running k-means clustering with k=2
+2024-04-25 22:28:51: embedding dimensionality is 2048
+2024-04-25 22:28:52: Summary epoch 22:
+train time 16.58
+valid time 17.48
+train loss 5.24
+valid acc projection head {
+    'AMI': 0.6272797683152161,
+    'NMI': 0.6339264447839243,
+    'mean_average_precision': 0.00476265616703235,
+    'mean_reciprocal_rank': 0.9285714626312256,
+    'precision_at_1': 0.9285714285714285
+}
+valid acc encoder {
+    'AMI': 0.12314363218259906,
+    'NMI': 0.13882498859779235,
+    'mean_average_precision': 0.003542875176580205,
+    'mean_reciprocal_rank': 0.6904761791229248,
+    'precision_at_1': 0.6904761904761905
+}
+2024-04-25 22:28:52: precision_at_1 increased (0.928571 --> 0.928571).  Saving model ...
+2024-04-25 22:28:52: ------------------------------ END - Epoch 22 -------------------------------
+2024-04-25 22:28:52: ----------------------------- START - Epoch 23 ------------------------------
+2024-04-25 22:29:21: running k-nn with k=1
+2024-04-25 22:29:21: embedding dimensionality is 128
+2024-04-25 22:29:21: running k-means clustering with k=2
+2024-04-25 22:29:21: embedding dimensionality is 128
+2024-04-25 22:29:32: running k-nn with k=1
+2024-04-25 22:29:32: embedding dimensionality is 2048
+2024-04-25 22:29:32: running k-means clustering with k=2
+2024-04-25 22:29:32: embedding dimensionality is 2048
+2024-04-25 22:29:32: Summary epoch 23:
+train time 16.42
+valid time 23.37
+train loss 5.23
+valid acc projection head {
+    'AMI': 0.5380535881495888,
+    'NMI': 0.546283660813055,
+    'mean_average_precision': 0.004518449500566058,
+    'mean_reciprocal_rank': 0.8809524178504944,
+    'precision_at_1': 0.8809523809523809
+}
+valid acc encoder {
+    'AMI': 0.12314363218259906,
+    'NMI': 0.13882498859779235,
+    'mean_average_precision': 0.003669361706390951,
+    'mean_reciprocal_rank': 0.7142857313156128,
+    'precision_at_1': 0.7142857142857142
+}
+2024-04-25 22:29:32: ------------------------------ END - Epoch 23 -------------------------------
+2024-04-25 22:29:32: ----------------------------- START - Epoch 24 ------------------------------
+2024-04-25 22:29:57: running k-nn with k=1
+2024-04-25 22:29:57: embedding dimensionality is 128
+2024-04-25 22:29:57: running k-means clustering with k=2
+2024-04-25 22:29:57: embedding dimensionality is 128
+2024-04-25 22:30:07: running k-nn with k=1
+2024-04-25 22:30:07: embedding dimensionality is 2048
+2024-04-25 22:30:07: running k-means clustering with k=2
+2024-04-25 22:30:07: embedding dimensionality is 2048
+2024-04-25 22:30:07: Summary epoch 24:
+train time 14.13
+valid time 20.36
+train loss 5.21
+valid acc projection head {
+    'AMI': 0.6272797683152161,
+    'NMI': 0.6339264447839243,
+    'mean_average_precision': 0.004884133329325839,
+    'mean_reciprocal_rank': 0.9523809552192688,
+    'precision_at_1': 0.9523809523809523
+}
+valid acc encoder {
+    'AMI': 0.12314363218259906,
+    'NMI': 0.13882498859779235,
+    'mean_average_precision': 0.0037895865268051253,
+    'mean_reciprocal_rank': 0.738095223903656,
+    'precision_at_1': 0.738095238095238
+}
+2024-04-25 22:30:07: precision_at_1 increased (0.928571 --> 0.952381).  Saving model ...
+2024-04-25 22:30:07: ------------------------------ END - Epoch 24 -------------------------------
+2024-04-25 22:30:07: ----------------------------- START - Epoch 25 ------------------------------
+2024-04-25 22:30:30: running k-nn with k=1
+2024-04-25 22:30:30: embedding dimensionality is 128
+2024-04-25 22:30:30: running k-means clustering with k=2
+2024-04-25 22:30:30: embedding dimensionality is 128
+2024-04-25 22:30:39: running k-nn with k=1
+2024-04-25 22:30:39: embedding dimensionality is 2048
+2024-04-25 22:30:39: running k-means clustering with k=2
+2024-04-25 22:30:39: embedding dimensionality is 2048
+2024-04-25 22:30:40: Summary epoch 25:
+train time 17.12
+valid time 15.40
+train loss 5.17
+valid acc projection head {
+    'AMI': 0.6272797683152161,
+    'NMI': 0.6339264447839243,
+    'mean_average_precision': 0.004763908508911664,
+    'mean_reciprocal_rank': 0.9285714626312256,
+    'precision_at_1': 0.9285714285714285
+}
+valid acc encoder {
+    'AMI': 0.16107312792095607,
+    'NMI': 0.17614796021488047,
+    'mean_average_precision': 0.0043969723382725695,
+    'mean_reciprocal_rank': 0.8571428656578064,
+    'precision_at_1': 0.8571428571428571
+}
+2024-04-25 22:30:40: ------------------------------ END - Epoch 25 -------------------------------
+2024-04-25 22:30:40: ----------------------------- START - Epoch 26 ------------------------------
+2024-04-25 22:31:03: running k-nn with k=1
+2024-04-25 22:31:03: embedding dimensionality is 128
+2024-04-25 22:31:03: running k-means clustering with k=2
+2024-04-25 22:31:03: embedding dimensionality is 128
+2024-04-25 22:31:14: running k-nn with k=1
+2024-04-25 22:31:14: embedding dimensionality is 2048
+2024-04-25 22:31:14: running k-means clustering with k=2
+2024-04-25 22:31:14: embedding dimensionality is 2048
+2024-04-25 22:31:14: Summary epoch 26:
+train time 15.77
+valid time 18.43
+train loss 5.17
+valid acc projection head {
+    'AMI': 0.6272797683152161,
+    'NMI': 0.6339264447839243,
+    'mean_average_precision': 0.00476265616703235,
+    'mean_reciprocal_rank': 0.9285714626312256,
+    'precision_at_1': 0.9285714285714285
+}
+valid acc encoder {
+    'AMI': 0.12314363218259906,
+    'NMI': 0.13882498859779235,
+    'mean_average_precision': 0.003908559005339985,
+    'mean_reciprocal_rank': 0.761904776096344,
+    'precision_at_1': 0.7619047619047619
+}
+2024-04-25 22:31:14: ------------------------------ END - Epoch 26 -------------------------------
+2024-04-25 22:31:14: ----------------------------- START - Epoch 27 ------------------------------
+2024-04-25 22:31:37: running k-nn with k=1
+2024-04-25 22:31:37: embedding dimensionality is 128
+2024-04-25 22:31:37: running k-means clustering with k=2
+2024-04-25 22:31:37: embedding dimensionality is 128
+2024-04-25 22:31:49: running k-nn with k=1
+2024-04-25 22:31:49: embedding dimensionality is 2048
+2024-04-25 22:31:49: running k-means clustering with k=2
+2024-04-25 22:31:49: embedding dimensionality is 2048
+2024-04-25 22:31:49: Summary epoch 27:
+train time 16.04
+valid time 19.40
+train loss 5.21
+valid acc projection head {
+    'AMI': 0.6272797683152161,
+    'NMI': 0.6339264447839243,
+    'mean_average_precision': 0.00476265616703235,
+    'mean_reciprocal_rank': 0.9285714626312256,
+    'precision_at_1': 0.9285714285714285
+}
+valid acc encoder {
+    'AMI': 0.16107312792095607,
+    'NMI': 0.17614796021488047,
+    'mean_average_precision': 0.004152765671806277,
+    'mean_reciprocal_rank': 0.8095238208770752,
+    'precision_at_1': 0.8095238095238095
+}
+2024-04-25 22:31:49: ------------------------------ END - Epoch 27 -------------------------------
+2024-04-25 22:31:49: ----------------------------- START - Epoch 28 ------------------------------
+2024-04-25 22:32:15: running k-nn with k=1
+2024-04-25 22:32:15: embedding dimensionality is 128
+2024-04-25 22:32:15: running k-means clustering with k=2
+2024-04-25 22:32:15: embedding dimensionality is 128
+2024-04-25 22:32:26: running k-nn with k=1
+2024-04-25 22:32:26: embedding dimensionality is 2048
+2024-04-25 22:32:26: running k-means clustering with k=2
+2024-04-25 22:32:26: embedding dimensionality is 2048
+2024-04-25 22:32:27: Summary epoch 28:
+train time 18.69
+valid time 18.52
+train loss 5.16
+valid acc projection head {
+    'AMI': 0.6272797683152161,
+    'NMI': 0.6339264447839243,
+    'mean_average_precision': 0.00476265616703235,
+    'mean_reciprocal_rank': 0.9285714626312256,
+    'precision_at_1': 0.9285714285714285
+}
+valid acc encoder {
+    'AMI': 0.16107312792095607,
+    'NMI': 0.17614796021488047,
+    'mean_average_precision': 0.004033793193271417,
+    'mean_reciprocal_rank': 0.785714328289032,
+    'precision_at_1': 0.7857142857142857
+}
+2024-04-25 22:32:27: ------------------------------ END - Epoch 28 -------------------------------
+2024-04-25 22:32:27: ----------------------------- START - Epoch 29 ------------------------------
+2024-04-25 22:32:55: running k-nn with k=1
+2024-04-25 22:32:55: embedding dimensionality is 128
+2024-04-25 22:32:55: running k-means clustering with k=2
+2024-04-25 22:32:55: embedding dimensionality is 128
+2024-04-25 22:33:05: running k-nn with k=1
+2024-04-25 22:33:05: embedding dimensionality is 2048
+2024-04-25 22:33:05: running k-means clustering with k=2
+2024-04-25 22:33:05: embedding dimensionality is 2048
+2024-04-25 22:33:06: Summary epoch 29:
+train time 18.16
+valid time 20.21
+train loss 5.13
+valid acc projection head {
+    'AMI': 0.6272797683152161,
+    'NMI': 0.6339264447839243,
+    'mean_average_precision': 0.004641179004738861,
+    'mean_reciprocal_rank': 0.9047619104385376,
+    'precision_at_1': 0.9047619047619047
+}
+valid acc encoder {
+    'AMI': 0.16107312792095607,
+    'NMI': 0.17614796021488047,
+    'mean_average_precision': 0.004151513329926963,
+    'mean_reciprocal_rank': 0.8095238208770752,
+    'precision_at_1': 0.8095238095238095
+}
+2024-04-25 22:33:06: ------------------------------ END - Epoch 29 -------------------------------
+2024-04-25 22:33:06: ----------------------------- START - Epoch 30 ------------------------------
+2024-04-25 22:33:26: running k-nn with k=1
+2024-04-25 22:33:26: embedding dimensionality is 128
+2024-04-25 22:33:26: running k-means clustering with k=2
+2024-04-25 22:33:26: embedding dimensionality is 128
+2024-04-25 22:33:38: running k-nn with k=1
+2024-04-25 22:33:38: embedding dimensionality is 2048
+2024-04-25 22:33:38: running k-means clustering with k=2
+2024-04-25 22:33:38: embedding dimensionality is 2048
+2024-04-25 22:33:38: Summary epoch 30:
+train time 13.78
+valid time 19.00
+train loss 5.15
+valid acc projection head {
+    'AMI': 0.6272797683152161,
+    'NMI': 0.6339264447839243,
+    'mean_average_precision': 0.004884133329325839,
+    'mean_reciprocal_rank': 0.9523809552192688,
+    'precision_at_1': 0.9523809523809523
+}
+valid acc encoder {
+    'AMI': 0.16107312792095607,
+    'NMI': 0.17614796021488047,
+    'mean_average_precision': 0.004276747517858395,
+    'mean_reciprocal_rank': 0.8333333730697632,
+    'precision_at_1': 0.8333333333333333
+}
+2024-04-25 22:33:38: precision_at_1 increased (0.952381 --> 0.952381).  Saving model ...
+2024-04-25 22:33:39: ------------------------------ END - Epoch 30 -------------------------------
+2024-04-25 22:33:39: ----------------------------- START - Epoch 31 ------------------------------
+2024-04-25 22:34:04: running k-nn with k=1
+2024-04-25 22:34:04: embedding dimensionality is 128
+2024-04-25 22:34:04: running k-means clustering with k=2
+2024-04-25 22:34:04: embedding dimensionality is 128
+2024-04-25 22:34:13: running k-nn with k=1
+2024-04-25 22:34:14: embedding dimensionality is 2048
+2024-04-25 22:34:14: running k-means clustering with k=2
+2024-04-25 22:34:14: embedding dimensionality is 2048
+2024-04-25 22:34:14: Summary epoch 31:
+train time 16.82
+valid time 18.06
+train loss 5.17
+valid acc projection head {
+    'AMI': 0.6272797683152161,
+    'NMI': 0.6339264447839243,
+    'mean_average_precision': 0.004761403825153035,
+    'mean_reciprocal_rank': 0.9285714626312256,
+    'precision_at_1': 0.9285714285714285
+}
+valid acc encoder {
+    'AMI': 0.16107312792095607,
+    'NMI': 0.17614796021488047,
+    'mean_average_precision': 0.0039098113472193,
+    'mean_reciprocal_rank': 0.761904776096344,
+    'precision_at_1': 0.7619047619047619
+}
+2024-04-25 22:34:14: ------------------------------ END - Epoch 31 -------------------------------
+2024-04-25 22:34:14: ----------------------------- START - Epoch 32 ------------------------------
+2024-04-25 22:34:35: running k-nn with k=1
+2024-04-25 22:34:35: embedding dimensionality is 128
+2024-04-25 22:34:35: running k-means clustering with k=2
+2024-04-25 22:34:35: embedding dimensionality is 128
+2024-04-25 22:34:45: running k-nn with k=1
+2024-04-25 22:34:45: embedding dimensionality is 2048
+2024-04-25 22:34:45: running k-means clustering with k=2
+2024-04-25 22:34:45: embedding dimensionality is 2048
+2024-04-25 22:34:45: Summary epoch 32:
+train time 14.39
+valid time 16.98
+train loss 5.17
+valid acc projection head {
+    'AMI': 0.6272797683152161,
+    'NMI': 0.6339264447839243,
+    'mean_average_precision': 0.00476265616703235,
+    'mean_reciprocal_rank': 0.9285714626312256,
+    'precision_at_1': 0.9285714285714285
+}
+valid acc encoder {
+    'AMI': 0.16107312792095607,
+    'NMI': 0.17614796021488047,
+    'mean_average_precision': 0.0043969723382725695,
+    'mean_reciprocal_rank': 0.8571428656578064,
+    'precision_at_1': 0.8571428571428571
+}
+2024-04-25 22:34:45: ------------------------------ END - Epoch 32 -------------------------------
+2024-04-25 22:34:45: ----------------------------- START - Epoch 33 ------------------------------
+2024-04-25 22:35:14: running k-nn with k=1
+2024-04-25 22:35:14: embedding dimensionality is 128
+2024-04-25 22:35:14: running k-means clustering with k=2
+2024-04-25 22:35:14: embedding dimensionality is 128
+2024-04-25 22:35:26: running k-nn with k=1
+2024-04-25 22:35:26: embedding dimensionality is 2048
+2024-04-25 22:35:26: running k-means clustering with k=2
+2024-04-25 22:35:26: embedding dimensionality is 2048
+2024-04-25 22:35:27: Summary epoch 33:
+train time 20.72
+valid time 21.57
+train loss 5.12
+valid acc projection head {
+    'AMI': 0.6272797683152161,
+    'NMI': 0.6339264447839243,
+    'mean_average_precision': 0.00476265616703235,
+    'mean_reciprocal_rank': 0.9285714626312256,
+    'precision_at_1': 0.9285714285714285
+}
+valid acc encoder {
+    'AMI': 0.19377793332761642,
+    'NMI': 0.2081416474325162,
+    'mean_average_precision': 0.004399477022031198,
+    'mean_reciprocal_rank': 0.8571428656578064,
+    'precision_at_1': 0.8571428571428571
+}
+2024-04-25 22:35:27: ------------------------------ END - Epoch 33 -------------------------------
+2024-04-25 22:35:27: ----------------------------- START - Epoch 34 ------------------------------
+2024-04-25 22:36:21: running k-nn with k=1
+2024-04-25 22:36:21: embedding dimensionality is 128
+2024-04-25 22:36:21: running k-means clustering with k=2
+2024-04-25 22:36:21: embedding dimensionality is 128
+2024-04-25 22:36:36: running k-nn with k=1
+2024-04-25 22:36:36: embedding dimensionality is 2048
+2024-04-25 22:36:36: running k-means clustering with k=2
+2024-04-25 22:36:36: embedding dimensionality is 2048
+2024-04-25 22:36:37: Summary epoch 34:
+train time 36.46
+valid time 33.37
+train loss 5.09
+valid acc projection head {
+    'AMI': 0.6272797683152161,
+    'NMI': 0.6339264447839243,
+    'mean_average_precision': 0.004884133329325839,
+    'mean_reciprocal_rank': 0.9523809552192688,
+    'precision_at_1': 0.9523809523809523
+}
+valid acc encoder {
+    'AMI': 0.16107312792095607,
+    'NMI': 0.17614796021488047,
+    'mean_average_precision': 0.004398224680151884,
+    'mean_reciprocal_rank': 0.8571428656578064,
+    'precision_at_1': 0.8571428571428571
+}
+2024-04-25 22:36:37: precision_at_1 increased (0.952381 --> 0.952381).  Saving model ...
+2024-04-25 22:36:38: ------------------------------ END - Epoch 34 -------------------------------
+2024-04-25 22:36:38: ----------------------------- START - Epoch 35 ------------------------------
+2024-04-25 22:37:17: running k-nn with k=1
+2024-04-25 22:37:17: embedding dimensionality is 128
+2024-04-25 22:37:17: running k-means clustering with k=2
+2024-04-25 22:37:17: embedding dimensionality is 128
+2024-04-25 22:37:27: running k-nn with k=1
+2024-04-25 22:37:27: embedding dimensionality is 2048
+2024-04-25 22:37:27: running k-means clustering with k=2
+2024-04-25 22:37:27: embedding dimensionality is 2048
+2024-04-25 22:37:28: Summary epoch 35:
+train time 21.44
+valid time 28.62
+train loss 5.10
+valid acc projection head {
+    'AMI': 0.6272797683152161,
+    'NMI': 0.6339264447839243,
+    'mean_average_precision': 0.004763908508911664,
+    'mean_reciprocal_rank': 0.9285714626312256,
+    'precision_at_1': 0.9285714285714285
+}
+valid acc encoder {
+    'AMI': 0.16107312792095607,
+    'NMI': 0.17614796021488047,
+    'mean_average_precision': 0.004032540851392103,
+    'mean_reciprocal_rank': 0.785714328289032,
+    'precision_at_1': 0.7857142857142857
+}
+2024-04-25 22:37:28: ------------------------------ END - Epoch 35 -------------------------------
+2024-04-25 22:37:28: ----------------------------- START - Epoch 36 ------------------------------
+2024-04-25 22:37:52: running k-nn with k=1
+2024-04-25 22:37:52: embedding dimensionality is 128
+2024-04-25 22:37:52: running k-means clustering with k=2
+2024-04-25 22:37:52: embedding dimensionality is 128
+2024-04-25 22:38:00: running k-nn with k=1
+2024-04-25 22:38:00: embedding dimensionality is 2048
+2024-04-25 22:38:00: running k-means clustering with k=2
+2024-04-25 22:38:00: embedding dimensionality is 2048
+2024-04-25 22:38:00: Summary epoch 36:
+train time 16.74
+valid time 15.67
+train loss 5.09
+valid acc projection head {
+    'AMI': 0.6272797683152161,
+    'NMI': 0.6339264447839243,
+    'mean_average_precision': 0.004641179004738862,
+    'mean_reciprocal_rank': 0.9047619104385376,
+    'precision_at_1': 0.9047619047619047
+}
+valid acc encoder {
+    'AMI': 0.16107312792095607,
+    'NMI': 0.17614796021488047,
+    'mean_average_precision': 0.0037895865268051253,
+    'mean_reciprocal_rank': 0.738095223903656,
+    'precision_at_1': 0.738095238095238
+}
+2024-04-25 22:38:00: ------------------------------ END - Epoch 36 -------------------------------
+2024-04-25 22:38:00: ----------------------------- START - Epoch 37 ------------------------------
+2024-04-25 22:38:29: running k-nn with k=1
+2024-04-25 22:38:29: embedding dimensionality is 128
+2024-04-25 22:38:30: running k-means clustering with k=2
+2024-04-25 22:38:30: embedding dimensionality is 128
+2024-04-25 22:38:40: running k-nn with k=1
+2024-04-25 22:38:40: embedding dimensionality is 2048
+2024-04-25 22:38:40: running k-means clustering with k=2
+2024-04-25 22:38:40: embedding dimensionality is 2048
+2024-04-25 22:38:40: Summary epoch 37:
+train time 17.75
+valid time 22.25
+train loss 5.12
+valid acc projection head {
+    'AMI': 0.6272797683152161,
+    'NMI': 0.6339264447839243,
+    'mean_average_precision': 0.004641179004738861,
+    'mean_reciprocal_rank': 0.9047619104385376,
+    'precision_at_1': 0.9047619047619047
+}
+valid acc encoder {
+    'AMI': 0.16107312792095607,
+    'NMI': 0.17614796021488047,
+    'mean_average_precision': 0.004277999859737709,
+    'mean_reciprocal_rank': 0.8333333730697632,
+    'precision_at_1': 0.8333333333333333
+}
+2024-04-25 22:38:40: ------------------------------ END - Epoch 37 -------------------------------
+2024-04-25 22:38:40: ----------------------------- START - Epoch 38 ------------------------------
+2024-04-25 22:39:11: running k-nn with k=1
+2024-04-25 22:39:11: embedding dimensionality is 128
+2024-04-25 22:39:11: running k-means clustering with k=2
+2024-04-25 22:39:11: embedding dimensionality is 128
+2024-04-25 22:39:20: running k-nn with k=1
+2024-04-25 22:39:20: embedding dimensionality is 2048
+2024-04-25 22:39:20: running k-means clustering with k=2
+2024-04-25 22:39:20: embedding dimensionality is 2048
+2024-04-25 22:39:20: Summary epoch 38:
+train time 17.69
+valid time 21.72
+train loss 5.08
+valid acc projection head {
+    'AMI': 0.6272797683152161,
+    'NMI': 0.6339264447839243,
+    'mean_average_precision': 0.004639926662859547,
+    'mean_reciprocal_rank': 0.9047619104385376,
+    'precision_at_1': 0.9047619047619047
+}
+valid acc encoder {
+    'AMI': 0.23781495557494486,
+    'NMI': 0.2514069126755343,
+    'mean_average_precision': 0.004518449500566058,
+    'mean_reciprocal_rank': 0.8809524178504944,
+    'precision_at_1': 0.8809523809523809
+}
+2024-04-25 22:39:20: ------------------------------ END - Epoch 38 -------------------------------
+2024-04-25 22:39:20: ----------------------------- START - Epoch 39 ------------------------------
+2024-04-25 22:39:41: running k-nn with k=1
+2024-04-25 22:39:41: embedding dimensionality is 128
+2024-04-25 22:39:41: running k-means clustering with k=2
+2024-04-25 22:39:41: embedding dimensionality is 128
+2024-04-25 22:39:52: running k-nn with k=1
+2024-04-25 22:39:52: embedding dimensionality is 2048
+2024-04-25 22:39:52: running k-means clustering with k=2
+2024-04-25 22:39:52: embedding dimensionality is 2048
+2024-04-25 22:39:53: Summary epoch 39:
+train time 14.08
+valid time 19.22
+train loss 5.06
+valid acc projection head {
+    'AMI': 0.6272797683152161,
+    'NMI': 0.6339264447839243,
+    'mean_average_precision': 0.00476265616703235,
+    'mean_reciprocal_rank': 0.9285714626312256,
+    'precision_at_1': 0.9285714285714285
+}
+valid acc encoder {
+    'AMI': 0.16107312792095607,
+    'NMI': 0.17614796021488047,
+    'mean_average_precision': 0.004155270355564906,
+    'mean_reciprocal_rank': 0.8095238208770752,
+    'precision_at_1': 0.8095238095238095
+}
+2024-04-25 22:39:53: ------------------------------ END - Epoch 39 -------------------------------
+2024-04-25 22:39:53: ----------------------------- START - Epoch 40 ------------------------------
+2024-04-25 22:40:19: running k-nn with k=1
+2024-04-25 22:40:19: embedding dimensionality is 128
+2024-04-25 22:40:19: running k-means clustering with k=2
+2024-04-25 22:40:19: embedding dimensionality is 128
+2024-04-25 22:40:32: running k-nn with k=1
+2024-04-25 22:40:32: embedding dimensionality is 2048
+2024-04-25 22:40:32: running k-means clustering with k=2
+2024-04-25 22:40:32: embedding dimensionality is 2048
+2024-04-25 22:40:32: Summary epoch 40:
+train time 16.28
+valid time 22.36
+train loss 5.07
+valid acc projection head {
+    'AMI': 0.6272797683152161,
+    'NMI': 0.6339264447839243,
+    'mean_average_precision': 0.00476265616703235,
+    'mean_reciprocal_rank': 0.9285714626312256,
+    'precision_at_1': 0.9285714285714285
+}
+valid acc encoder {
+    'AMI': 0.16107312792095607,
+    'NMI': 0.17614796021488047,
+    'mean_average_precision': 0.004274242834099766,
+    'mean_reciprocal_rank': 0.8333333730697632,
+    'precision_at_1': 0.8333333333333333
+}
+2024-04-25 22:40:32: ------------------------------ END - Epoch 40 -------------------------------
+2024-04-25 22:40:32: ----------------------------- START - Epoch 41 ------------------------------
+2024-04-25 22:40:58: running k-nn with k=1
+2024-04-25 22:40:58: embedding dimensionality is 128
+2024-04-25 22:40:58: running k-means clustering with k=2
+2024-04-25 22:40:58: embedding dimensionality is 128
+2024-04-25 22:41:07: running k-nn with k=1
+2024-04-25 22:41:07: embedding dimensionality is 2048
+2024-04-25 22:41:07: running k-means clustering with k=2
+2024-04-25 22:41:07: embedding dimensionality is 2048
+2024-04-25 22:41:07: Summary epoch 41:
+train time 15.76
+valid time 18.98
+train loss 5.08
+valid acc projection head {
+    'AMI': 0.6272797683152161,
+    'NMI': 0.6339264447839243,
+    'mean_average_precision': 0.00476265616703235,
+    'mean_reciprocal_rank': 0.9285714626312256,
+    'precision_at_1': 0.9285714285714285
+}
+valid acc encoder {
+    'AMI': 0.16107312792095607,
+    'NMI': 0.17614796021488047,
+    'mean_average_precision': 0.004274242834099766,
+    'mean_reciprocal_rank': 0.8333333730697632,
+    'precision_at_1': 0.8333333333333333
+}
+2024-04-25 22:41:07: ------------------------------ END - Epoch 41 -------------------------------
+2024-04-25 22:41:07: ----------------------------- START - Epoch 42 ------------------------------
+2024-04-25 22:41:30: running k-nn with k=1
+2024-04-25 22:41:30: embedding dimensionality is 128
+2024-04-25 22:41:30: running k-means clustering with k=2
+2024-04-25 22:41:30: embedding dimensionality is 128
+2024-04-25 22:41:38: running k-nn with k=1
+2024-04-25 22:41:38: embedding dimensionality is 2048
+2024-04-25 22:41:38: running k-means clustering with k=2
+2024-04-25 22:41:38: embedding dimensionality is 2048
+2024-04-25 22:41:39: Summary epoch 42:
+train time 14.29
+valid time 17.41
+train loss 5.07
+valid acc projection head {
+    'AMI': 0.6272797683152161,
+    'NMI': 0.6339264447839243,
+    'mean_average_precision': 0.00476265616703235,
+    'mean_reciprocal_rank': 0.9285714626312256,
+    'precision_at_1': 0.9285714285714285
+}
+valid acc encoder {
+    'AMI': 0.16107312792095607,
+    'NMI': 0.17614796021488047,
+    'mean_average_precision': 0.004518449500566058,
+    'mean_reciprocal_rank': 0.8809524178504944,
+    'precision_at_1': 0.8809523809523809
+}
+2024-04-25 22:41:39: ------------------------------ END - Epoch 42 -------------------------------
+2024-04-25 22:41:39: ----------------------------- START - Epoch 43 ------------------------------
+2024-04-25 22:42:02: running k-nn with k=1
+2024-04-25 22:42:02: embedding dimensionality is 128
+2024-04-25 22:42:02: running k-means clustering with k=2
+2024-04-25 22:42:02: embedding dimensionality is 128
+2024-04-25 22:42:10: running k-nn with k=1
+2024-04-25 22:42:10: embedding dimensionality is 2048
+2024-04-25 22:42:10: running k-means clustering with k=2
+2024-04-25 22:42:10: embedding dimensionality is 2048
+2024-04-25 22:42:13: Summary epoch 43:
+train time 14.04
+valid time 20.66
+train loss 5.07
+valid acc projection head {
+    'AMI': 0.6272797683152161,
+    'NMI': 0.6339264447839243,
+    'mean_average_precision': 0.00476265616703235,
+    'mean_reciprocal_rank': 0.9285714626312256,
+    'precision_at_1': 0.9285714285714285
+}
+valid acc encoder {
+    'AMI': 0.16107312792095607,
+    'NMI': 0.17614796021488047,
+    'mean_average_precision': 0.004396972338272569,
+    'mean_reciprocal_rank': 0.8571428656578064,
+    'precision_at_1': 0.8571428571428571
+}
+2024-04-25 22:42:13: ------------------------------ END - Epoch 43 -------------------------------
+2024-04-25 22:42:13: ----------------------------- START - Epoch 44 ------------------------------
+2024-04-25 22:42:40: running k-nn with k=1
+2024-04-25 22:42:40: embedding dimensionality is 128
+2024-04-25 22:42:40: running k-means clustering with k=2
+2024-04-25 22:42:40: embedding dimensionality is 128
+2024-04-25 22:42:49: running k-nn with k=1
+2024-04-25 22:42:49: embedding dimensionality is 2048
+2024-04-25 22:42:50: running k-means clustering with k=2
+2024-04-25 22:42:50: embedding dimensionality is 2048
+2024-04-25 22:42:50: Summary epoch 44:
+train time 16.67
+valid time 20.43
+train loss 5.05
+valid acc projection head {
+    'AMI': 0.6272797683152161,
+    'NMI': 0.6339264447839243,
+    'mean_average_precision': 0.004639926662859548,
+    'mean_reciprocal_rank': 0.9047619104385376,
+    'precision_at_1': 0.9047619047619047
+}
+valid acc encoder {
+    'AMI': 0.16107312792095607,
+    'NMI': 0.17614796021488047,
+    'mean_average_precision': 0.0039123160309779284,
+    'mean_reciprocal_rank': 0.761904776096344,
+    'precision_at_1': 0.7619047619047619
+}
+2024-04-25 22:42:50: ------------------------------ END - Epoch 44 -------------------------------
+2024-04-25 22:42:50: ----------------------------- START - Epoch 45 ------------------------------
+2024-04-25 22:43:18: running k-nn with k=1
+2024-04-25 22:43:18: embedding dimensionality is 128
+2024-04-25 22:43:18: running k-means clustering with k=2
+2024-04-25 22:43:18: embedding dimensionality is 128
+2024-04-25 22:43:28: running k-nn with k=1
+2024-04-25 22:43:28: embedding dimensionality is 2048
+2024-04-25 22:43:28: running k-means clustering with k=2
+2024-04-25 22:43:28: embedding dimensionality is 2048
+2024-04-25 22:43:29: Summary epoch 45:
+train time 16.06
+valid time 22.07
+train loss 5.05
+valid acc projection head {
+    'AMI': 0.6272797683152161,
+    'NMI': 0.6339264447839243,
+    'mean_average_precision': 0.004761403825153035,
+    'mean_reciprocal_rank': 0.9285714626312256,
+    'precision_at_1': 0.9285714285714285
+}
+valid acc encoder {
+    'AMI': 0.19698532846009284,
+    'NMI': 0.21134612885251114,
+    'mean_average_precision': 0.004031288509512788,
+    'mean_reciprocal_rank': 0.785714328289032,
+    'precision_at_1': 0.7857142857142857
+}
+2024-04-25 22:43:29: ------------------------------ END - Epoch 45 -------------------------------
+2024-04-25 22:43:29: ----------------------------- START - Epoch 46 ------------------------------
+2024-04-25 22:43:56: running k-nn with k=1
+2024-04-25 22:43:56: embedding dimensionality is 128
+2024-04-25 22:43:56: running k-means clustering with k=2
+2024-04-25 22:43:56: embedding dimensionality is 128
+2024-04-25 22:44:06: running k-nn with k=1
+2024-04-25 22:44:06: embedding dimensionality is 2048
+2024-04-25 22:44:06: running k-means clustering with k=2
+2024-04-25 22:44:06: embedding dimensionality is 2048
+2024-04-25 22:44:07: Summary epoch 46:
+train time 15.53
+valid time 23.25
+train loss 5.05
+valid acc projection head {
+    'AMI': 0.6272797683152161,
+    'NMI': 0.6339264447839243,
+    'mean_average_precision': 0.004761403825153035,
+    'mean_reciprocal_rank': 0.9285714626312256,
+    'precision_at_1': 0.9285714285714285
+}
+valid acc encoder {
+    'AMI': 0.16107312792095607,
+    'NMI': 0.17614796021488047,
+    'mean_average_precision': 0.004520954184324686,
+    'mean_reciprocal_rank': 0.8809524178504944,
+    'precision_at_1': 0.8809523809523809
+}
+2024-04-25 22:44:07: ------------------------------ END - Epoch 46 -------------------------------
+2024-04-25 22:44:07: ----------------------------- START - Epoch 47 ------------------------------
+2024-04-25 22:44:33: running k-nn with k=1
+2024-04-25 22:44:33: embedding dimensionality is 128
+2024-04-25 22:44:33: running k-means clustering with k=2
+2024-04-25 22:44:33: embedding dimensionality is 128
+2024-04-25 22:44:41: running k-nn with k=1
+2024-04-25 22:44:41: embedding dimensionality is 2048
+2024-04-25 22:44:41: running k-means clustering with k=2
+2024-04-25 22:44:41: embedding dimensionality is 2048
+2024-04-25 22:44:41: Summary epoch 47:
+train time 16.56
+valid time 16.58
+train loss 5.04
+valid acc projection head {
+    'AMI': 0.6272797683152161,
+    'NMI': 0.6339264447839243,
+    'mean_average_precision': 0.004761403825153035,
+    'mean_reciprocal_rank': 0.9285714626312256,
+    'precision_at_1': 0.9285714285714285
+}
+valid acc encoder {
+    'AMI': 0.16107312792095607,
+    'NMI': 0.17614796021488047,
+    'mean_average_precision': 0.004276747517858395,
+    'mean_reciprocal_rank': 0.8333333730697632,
+    'precision_at_1': 0.8333333333333333
+}
+2024-04-25 22:44:41: ------------------------------ END - Epoch 47 -------------------------------
+2024-04-25 22:44:41: ----------------------------- START - Epoch 48 ------------------------------
+2024-04-25 22:45:05: running k-nn with k=1
+2024-04-25 22:45:05: embedding dimensionality is 128
+2024-04-25 22:45:05: running k-means clustering with k=2
+2024-04-25 22:45:05: embedding dimensionality is 128
+2024-04-25 22:45:13: running k-nn with k=1
+2024-04-25 22:45:13: embedding dimensionality is 2048
+2024-04-25 22:45:13: running k-means clustering with k=2
+2024-04-25 22:45:13: embedding dimensionality is 2048
+2024-04-25 22:45:13: Summary epoch 48:
+train time 16.70
+valid time 15.89
+train loss 5.03
+valid acc projection head {
+    'AMI': 0.6272797683152161,
+    'NMI': 0.6339264447839243,
+    'mean_average_precision': 0.004884133329325839,
+    'mean_reciprocal_rank': 0.9523809552192688,
+    'precision_at_1': 0.9523809523809523
+}
+valid acc encoder {
+    'AMI': 0.16107312792095607,
+    'NMI': 0.17614796021488047,
+    'mean_average_precision': 0.003909811347219299,
+    'mean_reciprocal_rank': 0.761904776096344,
+    'precision_at_1': 0.7619047619047619
+}
+2024-04-25 22:45:13: precision_at_1 increased (0.952381 --> 0.952381).  Saving model ...
+2024-04-25 22:45:14: ------------------------------ END - Epoch 48 -------------------------------
+2024-04-25 22:45:14: ----------------------------- START - Epoch 49 ------------------------------
+2024-04-25 22:45:38: running k-nn with k=1
+2024-04-25 22:45:38: embedding dimensionality is 128
+2024-04-25 22:45:38: running k-means clustering with k=2
+2024-04-25 22:45:38: embedding dimensionality is 128
+2024-04-25 22:45:46: running k-nn with k=1
+2024-04-25 22:45:46: embedding dimensionality is 2048
+2024-04-25 22:45:46: running k-means clustering with k=2
+2024-04-25 22:45:46: embedding dimensionality is 2048
+2024-04-25 22:45:47: Summary epoch 49:
+train time 13.79
+valid time 19.16
+train loss 5.01
+valid acc projection head {
+    'AMI': 0.6272797683152161,
+    'NMI': 0.6339264447839243,
+    'mean_average_precision': 0.00476265616703235,
+    'mean_reciprocal_rank': 0.9285714626312256,
+    'precision_at_1': 0.9285714285714285
+}
+valid acc encoder {
+    'AMI': 0.16107312792095607,
+    'NMI': 0.17614796021488047,
+    'mean_average_precision': 0.004276747517858395,
+    'mean_reciprocal_rank': 0.8333333730697632,
+    'precision_at_1': 0.8333333333333333
+}
+2024-04-25 22:45:47: ------------------------------ END - Epoch 49 -------------------------------
+2024-04-25 22:45:47: ----------------------------- START - Epoch 50 ------------------------------
+2024-04-25 22:46:13: running k-nn with k=1
+2024-04-25 22:46:13: embedding dimensionality is 128
+2024-04-25 22:46:13: running k-means clustering with k=2
+2024-04-25 22:46:13: embedding dimensionality is 128
+2024-04-25 22:46:21: running k-nn with k=1
+2024-04-25 22:46:21: embedding dimensionality is 2048
+2024-04-25 22:46:21: running k-means clustering with k=2
+2024-04-25 22:46:21: embedding dimensionality is 2048
+2024-04-25 22:46:23: Summary epoch 50:
+train time 16.39
+valid time 19.71
+train loss 5.04
+valid acc projection head {
+    'AMI': 0.6272797683152161,
+    'NMI': 0.6339264447839243,
+    'mean_average_precision': 0.004519701842445373,
+    'mean_reciprocal_rank': 0.8809524178504944,
+    'precision_at_1': 0.8809523809523809
+}
+valid acc encoder {
+    'AMI': 0.16107312792095607,
+    'NMI': 0.17614796021488047,
+    'mean_average_precision': 0.004277999859737709,
+    'mean_reciprocal_rank': 0.8333333730697632,
+    'precision_at_1': 0.8333333333333333
+}
+2024-04-25 22:46:23: ------------------------------ END - Epoch 50 -------------------------------
+2024-04-25 22:46:23: ----------------------------- START - Epoch 51 ------------------------------
+2024-04-25 22:46:44: running k-nn with k=1
+2024-04-25 22:46:44: embedding dimensionality is 128
+2024-04-25 22:46:44: running k-means clustering with k=2
+2024-04-25 22:46:44: embedding dimensionality is 128
+2024-04-25 22:46:52: running k-nn with k=1
+2024-04-25 22:46:52: embedding dimensionality is 2048
+2024-04-25 22:46:52: running k-means clustering with k=2
+2024-04-25 22:46:52: embedding dimensionality is 2048
+2024-04-25 22:46:52: Summary epoch 51:
+train time 13.23
+valid time 15.82
+train loss 5.02
+valid acc projection head {
+    'AMI': 0.6272797683152161,
+    'NMI': 0.6339264447839243,
+    'mean_average_precision': 0.00476265616703235,
+    'mean_reciprocal_rank': 0.9285714626312256,
+    'precision_at_1': 0.9285714285714285
+}
+valid acc encoder {
+    'AMI': 0.16107312792095607,
+    'NMI': 0.17614796021488047,
+    'mean_average_precision': 0.003911063689098614,
+    'mean_reciprocal_rank': 0.761904776096344,
+    'precision_at_1': 0.7619047619047619
+}
+2024-04-25 22:46:52: ------------------------------ END - Epoch 51 -------------------------------
+2024-04-25 22:46:52: ----------------------------- START - Epoch 52 ------------------------------
+2024-04-25 22:47:19: running k-nn with k=1
+2024-04-25 22:47:19: embedding dimensionality is 128
+2024-04-25 22:47:19: running k-means clustering with k=2
+2024-04-25 22:47:19: embedding dimensionality is 128
+2024-04-25 22:47:26: running k-nn with k=1
+2024-04-25 22:47:26: embedding dimensionality is 2048
+2024-04-25 22:47:26: running k-means clustering with k=2
+2024-04-25 22:47:26: embedding dimensionality is 2048
+2024-04-25 22:47:26: Summary epoch 52:
+train time 15.52
+valid time 18.39
+train loss 5.04
+valid acc projection head {
+    'AMI': 0.6272797683152161,
+    'NMI': 0.6339264447839243,
+    'mean_average_precision': 0.004885385671205153,
+    'mean_reciprocal_rank': 0.9523809552192688,
+    'precision_at_1': 0.9523809523809523
+}
+valid acc encoder {
+    'AMI': 0.16107312792095607,
+    'NMI': 0.17614796021488047,
+    'mean_average_precision': 0.004398224680151883,
+    'mean_reciprocal_rank': 0.8571428656578064,
+    'precision_at_1': 0.8571428571428571
+}
+2024-04-25 22:47:26: precision_at_1 increased (0.952381 --> 0.952381).  Saving model ...
+2024-04-25 22:47:26: ------------------------------ END - Epoch 52 -------------------------------
+2024-04-25 22:47:26: ----------------------------- START - Epoch 53 ------------------------------
+2024-04-25 22:47:49: running k-nn with k=1
+2024-04-25 22:47:49: embedding dimensionality is 128
+2024-04-25 22:47:49: running k-means clustering with k=2
+2024-04-25 22:47:49: embedding dimensionality is 128
+2024-04-25 22:47:58: running k-nn with k=1
+2024-04-25 22:47:58: embedding dimensionality is 2048
+2024-04-25 22:47:58: running k-means clustering with k=2
+2024-04-25 22:47:58: embedding dimensionality is 2048
+2024-04-25 22:48:00: Summary epoch 53:
+train time 14.52
+valid time 18.30
+train loss 5.06
+valid acc projection head {
+    'AMI': 0.6272797683152161,
+    'NMI': 0.6339264447839243,
+    'mean_average_precision': 0.004885385671205153,
+    'mean_reciprocal_rank': 0.9523809552192688,
+    'precision_at_1': 0.9523809523809523
+}
+valid acc encoder {
+    'AMI': 0.16107312792095607,
+    'NMI': 0.17614796021488047,
+    'mean_average_precision': 0.004032540851392103,
+    'mean_reciprocal_rank': 0.785714328289032,
+    'precision_at_1': 0.7857142857142857
+}
+2024-04-25 22:48:00: precision_at_1 increased (0.952381 --> 0.952381).  Saving model ...
+2024-04-25 22:48:00: ------------------------------ END - Epoch 53 -------------------------------
+2024-04-25 22:48:00: ----------------------------- START - Epoch 54 ------------------------------
+2024-04-25 22:48:22: running k-nn with k=1
+2024-04-25 22:48:22: embedding dimensionality is 128
+2024-04-25 22:48:22: running k-means clustering with k=2
+2024-04-25 22:48:22: embedding dimensionality is 128
+2024-04-25 22:48:33: running k-nn with k=1
+2024-04-25 22:48:33: embedding dimensionality is 2048
+2024-04-25 22:48:33: running k-means clustering with k=2
+2024-04-25 22:48:33: embedding dimensionality is 2048
+2024-04-25 22:48:34: Summary epoch 54:
+train time 14.52
+valid time 18.91
+train loss 5.03
+valid acc projection head {
+    'AMI': 0.6272797683152161,
+    'NMI': 0.6339264447839243,
+    'mean_average_precision': 0.004884133329325839,
+    'mean_reciprocal_rank': 0.9523809552192688,
+    'precision_at_1': 0.9523809523809523
+}
+valid acc encoder {
+    'AMI': 0.16107312792095607,
+    'NMI': 0.17614796021488047,
+    'mean_average_precision': 0.004519701842445373,
+    'mean_reciprocal_rank': 0.8809524178504944,
+    'precision_at_1': 0.8809523809523809
+}
+2024-04-25 22:48:34: precision_at_1 increased (0.952381 --> 0.952381).  Saving model ...
+2024-04-25 22:48:34: ------------------------------ END - Epoch 54 -------------------------------
+2024-04-25 22:48:34: ----------------------------- START - Epoch 55 ------------------------------
+2024-04-25 22:49:00: running k-nn with k=1
+2024-04-25 22:49:00: embedding dimensionality is 128
+2024-04-25 22:49:00: running k-means clustering with k=2
+2024-04-25 22:49:00: embedding dimensionality is 128
+2024-04-25 22:49:07: running k-nn with k=1
+2024-04-25 22:49:07: embedding dimensionality is 2048
+2024-04-25 22:49:07: running k-means clustering with k=2
+2024-04-25 22:49:07: embedding dimensionality is 2048
+2024-04-25 22:49:07: Summary epoch 55:
+train time 14.69
+valid time 18.70
+train loss 5.00
+valid acc projection head {
+    'AMI': 0.6272797683152161,
+    'NMI': 0.6339264447839243,
+    'mean_average_precision': 0.004639926662859547,
+    'mean_reciprocal_rank': 0.9047619104385376,
+    'precision_at_1': 0.9047619047619047
+}
+valid acc encoder {
+    'AMI': 0.16107312792095607,
+    'NMI': 0.17614796021488047,
+    'mean_average_precision': 0.004399477022031198,
+    'mean_reciprocal_rank': 0.8571428656578064,
+    'precision_at_1': 0.8571428571428571
+}
+2024-04-25 22:49:07: ------------------------------ END - Epoch 55 -------------------------------
+2024-04-25 22:49:07: ----------------------------- START - Epoch 56 ------------------------------
+2024-04-25 22:49:31: running k-nn with k=1
+2024-04-25 22:49:31: embedding dimensionality is 128
+2024-04-25 22:49:31: running k-means clustering with k=2
+2024-04-25 22:49:31: embedding dimensionality is 128
+2024-04-25 22:49:38: running k-nn with k=1
+2024-04-25 22:49:38: embedding dimensionality is 2048
+2024-04-25 22:49:38: running k-means clustering with k=2
+2024-04-25 22:49:38: embedding dimensionality is 2048
+2024-04-25 22:49:39: Summary epoch 56:
+train time 16.44
+valid time 15.55
+train loss 5.03
+valid acc projection head {
+    'AMI': 0.6272797683152161,
+    'NMI': 0.6339264447839243,
+    'mean_average_precision': 0.004639926662859547,
+    'mean_reciprocal_rank': 0.9047619104385376,
+    'precision_at_1': 0.9047619047619047
+}
+valid acc encoder {
+    'AMI': 0.16107312792095607,
+    'NMI': 0.17614796021488047,
+    'mean_average_precision': 0.004156522697444221,
+    'mean_reciprocal_rank': 0.8095238208770752,
+    'precision_at_1': 0.8095238095238095
+}
+2024-04-25 22:49:39: ------------------------------ END - Epoch 56 -------------------------------
+2024-04-25 22:49:39: ----------------------------- START - Epoch 57 ------------------------------
+2024-04-25 22:50:01: running k-nn with k=1
+2024-04-25 22:50:01: embedding dimensionality is 128
+2024-04-25 22:50:01: running k-means clustering with k=2
+2024-04-25 22:50:01: embedding dimensionality is 128
+2024-04-25 22:50:11: running k-nn with k=1
+2024-04-25 22:50:11: embedding dimensionality is 2048
+2024-04-25 22:50:11: running k-means clustering with k=2
+2024-04-25 22:50:11: embedding dimensionality is 2048
+2024-04-25 22:50:11: Summary epoch 57:
+train time 14.64
+valid time 17.20
+train loss 5.00
+valid acc projection head {
+    'AMI': 0.6272797683152161,
+    'NMI': 0.6339264447839243,
+    'mean_average_precision': 0.004639926662859547,
+    'mean_reciprocal_rank': 0.9047619104385376,
+    'precision_at_1': 0.9047619047619047
+}
+valid acc encoder {
+    'AMI': 0.19698532846009284,
+    'NMI': 0.21134612885251114,
+    'mean_average_precision': 0.004518449500566058,
+    'mean_reciprocal_rank': 0.8809524178504944,
+    'precision_at_1': 0.8809523809523809
+}
+2024-04-25 22:50:11: ------------------------------ END - Epoch 57 -------------------------------
+2024-04-25 22:50:11: ----------------------------- START - Epoch 58 ------------------------------
+2024-04-25 22:50:36: running k-nn with k=1
+2024-04-25 22:50:36: embedding dimensionality is 128
+2024-04-25 22:50:36: running k-means clustering with k=2
+2024-04-25 22:50:36: embedding dimensionality is 128
+2024-04-25 22:50:46: running k-nn with k=1
+2024-04-25 22:50:46: embedding dimensionality is 2048
+2024-04-25 22:50:46: running k-means clustering with k=2
+2024-04-25 22:50:46: embedding dimensionality is 2048
+2024-04-25 22:50:46: Summary epoch 58:
+train time 16.61
+valid time 18.45
+train loss 5.02
+valid acc projection head {
+    'AMI': 0.6272797683152161,
+    'NMI': 0.6339264447839243,
+    'mean_average_precision': 0.0050068628334986424,
+    'mean_reciprocal_rank': 0.9761905074119568,
+    'precision_at_1': 0.9761904761904762
+}
+valid acc encoder {
+    'AMI': 0.19698532846009284,
+    'NMI': 0.21134612885251114,
+    'mean_average_precision': 0.004396972338272569,
+    'mean_reciprocal_rank': 0.8571428656578064,
+    'precision_at_1': 0.8571428571428571
+}
+2024-04-25 22:50:46: precision_at_1 increased (0.952381 --> 0.976190).  Saving model ...
+2024-04-25 22:50:47: ------------------------------ END - Epoch 58 -------------------------------
+2024-04-25 22:50:47: ----------------------------- START - Epoch 59 ------------------------------
+2024-04-25 22:51:10: running k-nn with k=1
+2024-04-25 22:51:10: embedding dimensionality is 128
+2024-04-25 22:51:10: running k-means clustering with k=2
+2024-04-25 22:51:10: embedding dimensionality is 128
+2024-04-25 22:51:18: running k-nn with k=1
+2024-04-25 22:51:18: embedding dimensionality is 2048
+2024-04-25 22:51:18: running k-means clustering with k=2
+2024-04-25 22:51:18: embedding dimensionality is 2048
+2024-04-25 22:51:18: Summary epoch 59:
+train time 14.45
+valid time 16.66
+train loss 5.01
+valid acc projection head {
+    'AMI': 0.6272797683152161,
+    'NMI': 0.6339264447839243,
+    'mean_average_precision': 0.00476265616703235,
+    'mean_reciprocal_rank': 0.9285714626312256,
+    'precision_at_1': 0.9285714285714285
+}
+valid acc encoder {
+    'AMI': 0.19698532846009284,
+    'NMI': 0.21134612885251114,
+    'mean_average_precision': 0.00427549517597908,
+    'mean_reciprocal_rank': 0.8333333730697632,
+    'precision_at_1': 0.8333333333333333
+}
+2024-04-25 22:51:18: ------------------------------ END - Epoch 59 -------------------------------
+2024-04-25 22:51:18: ----------------------------- START - Epoch 60 ------------------------------
+2024-04-25 22:51:41: running k-nn with k=1
+2024-04-25 22:51:41: embedding dimensionality is 128
+2024-04-25 22:51:41: running k-means clustering with k=2
+2024-04-25 22:51:41: embedding dimensionality is 128
+2024-04-25 22:51:50: running k-nn with k=1
+2024-04-25 22:51:50: embedding dimensionality is 2048
+2024-04-25 22:51:50: running k-means clustering with k=2
+2024-04-25 22:51:50: embedding dimensionality is 2048
+2024-04-25 22:51:51: Summary epoch 60:
+train time 15.13
+valid time 17.92
+train loss 4.97
+valid acc projection head {
+    'AMI': 0.6272797683152161,
+    'NMI': 0.6339264447839243,
+    'mean_average_precision': 0.004761403825153035,
+    'mean_reciprocal_rank': 0.9285714626312256,
+    'precision_at_1': 0.9285714285714285
+}
+valid acc encoder {
+    'AMI': 0.16107312792095607,
+    'NMI': 0.17614796021488047,
+    'mean_average_precision': 0.004033793193271417,
+    'mean_reciprocal_rank': 0.785714328289032,
+    'precision_at_1': 0.7857142857142857
+}
+2024-04-25 22:51:51: ------------------------------ END - Epoch 60 -------------------------------
+2024-04-25 22:51:51: ----------------------------- START - Epoch 61 ------------------------------
+2024-04-25 22:52:16: running k-nn with k=1
+2024-04-25 22:52:17: embedding dimensionality is 128
+2024-04-25 22:52:17: running k-means clustering with k=2
+2024-04-25 22:52:17: embedding dimensionality is 128
+2024-04-25 22:52:26: running k-nn with k=1
+2024-04-25 22:52:26: embedding dimensionality is 2048
+2024-04-25 22:52:27: running k-means clustering with k=2
+2024-04-25 22:52:27: embedding dimensionality is 2048
+2024-04-25 22:52:27: Summary epoch 61:
+train time 15.60
+valid time 20.32
+train loss 5.03
+valid acc projection head {
+    'AMI': 0.6272797683152161,
+    'NMI': 0.6339264447839243,
+    'mean_average_precision': 0.004761403825153035,
+    'mean_reciprocal_rank': 0.9285714626312256,
+    'precision_at_1': 0.9285714285714285
+}
+valid acc encoder {
+    'AMI': 0.23781495557494486,
+    'NMI': 0.2514069126755343,
+    'mean_average_precision': 0.004155270355564906,
+    'mean_reciprocal_rank': 0.8095238208770752,
+    'precision_at_1': 0.8095238095238095
+}
+2024-04-25 22:52:27: ------------------------------ END - Epoch 61 -------------------------------
+2024-04-25 22:52:27: ----------------------------- START - Epoch 62 ------------------------------
+2024-04-25 22:52:50: running k-nn with k=1
+2024-04-25 22:52:50: embedding dimensionality is 128
+2024-04-25 22:52:50: running k-means clustering with k=2
+2024-04-25 22:52:50: embedding dimensionality is 128
+2024-04-25 22:53:01: running k-nn with k=1
+2024-04-25 22:53:01: embedding dimensionality is 2048
+2024-04-25 22:53:01: running k-means clustering with k=2
+2024-04-25 22:53:01: embedding dimensionality is 2048
+2024-04-25 22:53:01: Summary epoch 62:
+train time 16.18
+valid time 18.23
+train loss 5.04
+valid acc projection head {
+    'AMI': 0.6272797683152161,
+    'NMI': 0.6339264447839243,
+    'mean_average_precision': 0.004884133329325839,
+    'mean_reciprocal_rank': 0.9523809552192688,
+    'precision_at_1': 0.9523809523809523
+}
+valid acc encoder {
+    'AMI': 0.23781495557494486,
+    'NMI': 0.2514069126755343,
+    'mean_average_precision': 0.004398224680151884,
+    'mean_reciprocal_rank': 0.8571428656578064,
+    'precision_at_1': 0.8571428571428571
+}
+2024-04-25 22:53:01: ------------------------------ END - Epoch 62 -------------------------------
+2024-04-25 22:53:01: ----------------------------- START - Epoch 63 ------------------------------
+2024-04-25 22:53:28: running k-nn with k=1
+2024-04-25 22:53:28: embedding dimensionality is 128
+2024-04-25 22:53:28: running k-means clustering with k=2
+2024-04-25 22:53:28: embedding dimensionality is 128
+2024-04-25 22:53:37: running k-nn with k=1
+2024-04-25 22:53:38: embedding dimensionality is 2048
+2024-04-25 22:53:38: running k-means clustering with k=2
+2024-04-25 22:53:38: embedding dimensionality is 2048
+2024-04-25 22:53:38: Summary epoch 63:
+train time 18.18
+valid time 18.09
+train loss 4.98
+valid acc projection head {
+    'AMI': 0.6272797683152161,
+    'NMI': 0.6339264447839243,
+    'mean_average_precision': 0.004884133329325839,
+    'mean_reciprocal_rank': 0.9523809552192688,
+    'precision_at_1': 0.9523809523809523
+}
+valid acc encoder {
+    'AMI': 0.23781495557494486,
+    'NMI': 0.2514069126755343,
+    'mean_average_precision': 0.003908559005339985,
+    'mean_reciprocal_rank': 0.761904776096344,
+    'precision_at_1': 0.7619047619047619
+}
+2024-04-25 22:53:38: ------------------------------ END - Epoch 63 -------------------------------
+2024-04-25 22:53:38: ----------------------------- START - Epoch 64 ------------------------------
+2024-04-25 22:54:10: running k-nn with k=1
+2024-04-25 22:54:10: embedding dimensionality is 128
+2024-04-25 22:54:10: running k-means clustering with k=2
+2024-04-25 22:54:10: embedding dimensionality is 128
+2024-04-25 22:54:18: running k-nn with k=1
+2024-04-25 22:54:18: embedding dimensionality is 2048
+2024-04-25 22:54:18: running k-means clustering with k=2
+2024-04-25 22:54:18: embedding dimensionality is 2048
+2024-04-25 22:54:19: Summary epoch 64:
+train time 19.22
+valid time 22.01
+train loss 4.99
+valid acc projection head {
+    'AMI': 0.6272797683152161,
+    'NMI': 0.6339264447839243,
+    'mean_average_precision': 0.004761403825153035,
+    'mean_reciprocal_rank': 0.9285714626312256,
+    'precision_at_1': 0.9285714285714285
+}
+valid acc encoder {
+    'AMI': 0.16107312792095607,
+    'NMI': 0.17614796021488047,
+    'mean_average_precision': 0.004033793193271417,
+    'mean_reciprocal_rank': 0.785714328289032,
+    'precision_at_1': 0.7857142857142857
+}
+2024-04-25 22:54:19: ------------------------------ END - Epoch 64 -------------------------------
+2024-04-25 22:54:19: ----------------------------- START - Epoch 65 ------------------------------
+2024-04-25 22:54:47: running k-nn with k=1
+2024-04-25 22:54:47: embedding dimensionality is 128
+2024-04-25 22:54:47: running k-means clustering with k=2
+2024-04-25 22:54:47: embedding dimensionality is 128
+2024-04-25 22:54:57: running k-nn with k=1
+2024-04-25 22:54:57: embedding dimensionality is 2048
+2024-04-25 22:54:57: running k-means clustering with k=2
+2024-04-25 22:54:57: embedding dimensionality is 2048
+2024-04-25 22:54:57: Summary epoch 65:
+train time 20.77
+valid time 17.45
+train loss 4.96
+valid acc projection head {
+    'AMI': 0.6272797683152161,
+    'NMI': 0.6339264447839243,
+    'mean_average_precision': 0.004884133329325839,
+    'mean_reciprocal_rank': 0.9523809552192688,
+    'precision_at_1': 0.9523809523809523
+}
+valid acc encoder {
+    'AMI': 0.16107312792095607,
+    'NMI': 0.17614796021488047,
+    'mean_average_precision': 0.004276747517858395,
+    'mean_reciprocal_rank': 0.8333333730697632,
+    'precision_at_1': 0.8333333333333333
+}
+2024-04-25 22:54:57: ------------------------------ END - Epoch 65 -------------------------------
+2024-04-25 22:54:57: ----------------------------- START - Epoch 66 ------------------------------
+2024-04-25 22:55:23: running k-nn with k=1
+2024-04-25 22:55:23: embedding dimensionality is 128
+2024-04-25 22:55:23: running k-means clustering with k=2
+2024-04-25 22:55:23: embedding dimensionality is 128
+2024-04-25 22:55:32: running k-nn with k=1
+2024-04-25 22:55:32: embedding dimensionality is 2048
+2024-04-25 22:55:32: running k-means clustering with k=2
+2024-04-25 22:55:32: embedding dimensionality is 2048
+2024-04-25 22:55:33: Summary epoch 66:
+train time 15.87
+valid time 19.60
+train loss 4.97
+valid acc projection head {
+    'AMI': 0.6272797683152161,
+    'NMI': 0.6339264447839243,
+    'mean_average_precision': 0.00476265616703235,
+    'mean_reciprocal_rank': 0.9285714626312256,
+    'precision_at_1': 0.9285714285714285
+}
+valid acc encoder {
+    'AMI': 0.19698532846009284,
+    'NMI': 0.21134612885251114,
+    'mean_average_precision': 0.004642431346618176,
+    'mean_reciprocal_rank': 0.9047619104385376,
+    'precision_at_1': 0.9047619047619047
+}
+2024-04-25 22:55:33: ------------------------------ END - Epoch 66 -------------------------------
+2024-04-25 22:55:33: ----------------------------- START - Epoch 67 ------------------------------
+2024-04-25 22:55:55: running k-nn with k=1
+2024-04-25 22:55:55: embedding dimensionality is 128
+2024-04-25 22:55:55: running k-means clustering with k=2
+2024-04-25 22:55:55: embedding dimensionality is 128
+2024-04-25 22:56:05: running k-nn with k=1
+2024-04-25 22:56:05: embedding dimensionality is 2048
+2024-04-25 22:56:05: running k-means clustering with k=2
+2024-04-25 22:56:05: embedding dimensionality is 2048
+2024-04-25 22:56:05: Summary epoch 67:
+train time 14.09
+valid time 18.28
+train loss 4.97
+valid acc projection head {
+    'AMI': 0.6272797683152161,
+    'NMI': 0.6339264447839243,
+    'mean_average_precision': 0.004884133329325839,
+    'mean_reciprocal_rank': 0.9523809552192688,
+    'precision_at_1': 0.9523809523809523
+}
+valid acc encoder {
+    'AMI': 0.19698532846009284,
+    'NMI': 0.21134612885251114,
+    'mean_average_precision': 0.0043969723382725695,
+    'mean_reciprocal_rank': 0.8571428656578064,
+    'precision_at_1': 0.8571428571428571
+}
+2024-04-25 22:56:05: ------------------------------ END - Epoch 67 -------------------------------
+2024-04-25 22:56:05: ----------------------------- START - Epoch 68 ------------------------------
+2024-04-25 22:56:30: running k-nn with k=1
+2024-04-25 22:56:30: embedding dimensionality is 128
+2024-04-25 22:56:30: running k-means clustering with k=2
+2024-04-25 22:56:30: embedding dimensionality is 128
+2024-04-25 22:56:42: running k-nn with k=1
+2024-04-25 22:56:42: embedding dimensionality is 2048
+2024-04-25 22:56:42: running k-means clustering with k=2
+2024-04-25 22:56:42: embedding dimensionality is 2048
+2024-04-25 22:56:42: Summary epoch 68:
+train time 13.85
+valid time 21.90
+train loss 5.01
+valid acc projection head {
+    'AMI': 0.6272797683152161,
+    'NMI': 0.6339264447839243,
+    'mean_average_precision': 0.004885385671205153,
+    'mean_reciprocal_rank': 0.9523809552192688,
+    'precision_at_1': 0.9523809523809523
+}
+valid acc encoder {
+    'AMI': 0.19698532846009284,
+    'NMI': 0.21134612885251114,
+    'mean_average_precision': 0.004276747517858395,
+    'mean_reciprocal_rank': 0.8333333730697632,
+    'precision_at_1': 0.8333333333333333
+}
+2024-04-25 22:56:42: ------------------------------ END - Epoch 68 -------------------------------
+2024-04-25 22:56:42: ----------------------------- START - Epoch 69 ------------------------------
+2024-04-25 22:57:05: running k-nn with k=1
+2024-04-25 22:57:05: embedding dimensionality is 128
+2024-04-25 22:57:05: running k-means clustering with k=2
+2024-04-25 22:57:05: embedding dimensionality is 128
+2024-04-25 22:57:14: running k-nn with k=1
+2024-04-25 22:57:14: embedding dimensionality is 2048
+2024-04-25 22:57:14: running k-means clustering with k=2
+2024-04-25 22:57:14: embedding dimensionality is 2048
+2024-04-25 22:57:14: Summary epoch 69:
+train time 17.11
+valid time 14.92
+train loss 4.99
+valid acc projection head {
+    'AMI': 0.6272797683152161,
+    'NMI': 0.6339264447839243,
+    'mean_average_precision': 0.004884133329325839,
+    'mean_reciprocal_rank': 0.9523809552192688,
+    'precision_at_1': 0.9523809523809523
+}
+valid acc encoder {
+    'AMI': 0.19698532846009284,
+    'NMI': 0.21134612885251114,
+    'mean_average_precision': 0.004155270355564906,
+    'mean_reciprocal_rank': 0.8095238208770752,
+    'precision_at_1': 0.8095238095238095
+}
+2024-04-25 22:57:14: ------------------------------ END - Epoch 69 -------------------------------
+2024-04-25 22:57:14: ----------------------------- START - Epoch 70 ------------------------------
+2024-04-25 22:57:42: running k-nn with k=1
+2024-04-25 22:57:42: embedding dimensionality is 128
+2024-04-25 22:57:42: running k-means clustering with k=2
+2024-04-25 22:57:42: embedding dimensionality is 128
+2024-04-25 22:57:52: running k-nn with k=1
+2024-04-25 22:57:52: embedding dimensionality is 2048
+2024-04-25 22:57:52: running k-means clustering with k=2
+2024-04-25 22:57:52: embedding dimensionality is 2048
+2024-04-25 22:57:52: Summary epoch 70:
+train time 15.25
+valid time 22.68
+train loss 5.02
+valid acc projection head {
+    'AMI': 0.6272797683152161,
+    'NMI': 0.6339264447839243,
+    'mean_average_precision': 0.004761403825153035,
+    'mean_reciprocal_rank': 0.9285714626312256,
+    'precision_at_1': 0.9285714285714285
+}
+valid acc encoder {
+    'AMI': 0.19698532846009284,
+    'NMI': 0.21134612885251114,
+    'mean_average_precision': 0.004156522697444221,
+    'mean_reciprocal_rank': 0.8095238208770752,
+    'precision_at_1': 0.8095238095238095
+}
+2024-04-25 22:57:52: ------------------------------ END - Epoch 70 -------------------------------
+2024-04-25 22:57:52: ----------------------------- START - Epoch 71 ------------------------------
+2024-04-25 22:58:20: running k-nn with k=1
+2024-04-25 22:58:21: embedding dimensionality is 128
+2024-04-25 22:58:21: running k-means clustering with k=2
+2024-04-25 22:58:21: embedding dimensionality is 128
+2024-04-25 22:58:35: running k-nn with k=1
+2024-04-25 22:58:35: embedding dimensionality is 2048
+2024-04-25 22:58:35: running k-means clustering with k=2
+2024-04-25 22:58:35: embedding dimensionality is 2048
+2024-04-25 22:58:35: Summary epoch 71:
+train time 15.38
+valid time 27.66
+train loss 4.97
+valid acc projection head {
+    'AMI': 0.6272797683152161,
+    'NMI': 0.6339264447839243,
+    'mean_average_precision': 0.004761403825153035,
+    'mean_reciprocal_rank': 0.9285714626312256,
+    'precision_at_1': 0.9285714285714285
+}
+valid acc encoder {
+    'AMI': 0.19698532846009284,
+    'NMI': 0.21134612885251114,
+    'mean_average_precision': 0.00451594481680743,
+    'mean_reciprocal_rank': 0.8809524178504944,
+    'precision_at_1': 0.8809523809523809
+}
+2024-04-25 22:58:35: ------------------------------ END - Epoch 71 -------------------------------
+2024-04-25 22:58:35: ----------------------------- START - Epoch 72 ------------------------------
+2024-04-25 22:58:59: running k-nn with k=1
+2024-04-25 22:58:59: embedding dimensionality is 128
+2024-04-25 22:58:59: running k-means clustering with k=2
+2024-04-25 22:58:59: embedding dimensionality is 128
+2024-04-25 22:59:06: running k-nn with k=1
+2024-04-25 22:59:06: embedding dimensionality is 2048
+2024-04-25 22:59:06: running k-means clustering with k=2
+2024-04-25 22:59:06: embedding dimensionality is 2048
+2024-04-25 22:59:06: Summary epoch 72:
+train time 15.66
+valid time 15.70
+train loss 5.00
+valid acc projection head {
+    'AMI': 0.6272797683152161,
+    'NMI': 0.6339264447839243,
+    'mean_average_precision': 0.004884133329325839,
+    'mean_reciprocal_rank': 0.9523809552192688,
+    'precision_at_1': 0.9523809523809523
+}
+valid acc encoder {
+    'AMI': 0.19698532846009284,
+    'NMI': 0.21134612885251114,
+    'mean_average_precision': 0.004641179004738862,
+    'mean_reciprocal_rank': 0.9047619104385376,
+    'precision_at_1': 0.9047619047619047
+}
+2024-04-25 22:59:06: ------------------------------ END - Epoch 72 -------------------------------
+2024-04-25 22:59:06: ----------------------------- START - Epoch 73 ------------------------------
+2024-04-25 22:59:29: running k-nn with k=1
+2024-04-25 22:59:29: embedding dimensionality is 128
+2024-04-25 22:59:29: running k-means clustering with k=2
+2024-04-25 22:59:29: embedding dimensionality is 128
+2024-04-25 22:59:38: running k-nn with k=1
+2024-04-25 22:59:38: embedding dimensionality is 2048
+2024-04-25 22:59:38: running k-means clustering with k=2
+2024-04-25 22:59:38: embedding dimensionality is 2048
+2024-04-25 22:59:38: Summary epoch 73:
+train time 15.13
+valid time 16.03
+train loss 5.00
+valid acc projection head {
+    'AMI': 0.6272797683152161,
+    'NMI': 0.6339264447839243,
+    'mean_average_precision': 0.004884133329325839,
+    'mean_reciprocal_rank': 0.9523809552192688,
+    'precision_at_1': 0.9523809523809523
+}
+valid acc encoder {
+    'AMI': 0.19698532846009284,
+    'NMI': 0.21134612885251114,
+    'mean_average_precision': 0.0043969723382725695,
+    'mean_reciprocal_rank': 0.8571428656578064,
+    'precision_at_1': 0.8571428571428571
+}
+2024-04-25 22:59:38: ------------------------------ END - Epoch 73 -------------------------------
+2024-04-25 22:59:38: ----------------------------- START - Epoch 74 ------------------------------
+2024-04-25 23:00:03: running k-nn with k=1
+2024-04-25 23:00:03: embedding dimensionality is 128
+2024-04-25 23:00:03: running k-means clustering with k=2
+2024-04-25 23:00:03: embedding dimensionality is 128
+2024-04-25 23:00:14: running k-nn with k=1
+2024-04-25 23:00:14: embedding dimensionality is 2048
+2024-04-25 23:00:14: running k-means clustering with k=2
+2024-04-25 23:00:14: embedding dimensionality is 2048
+2024-04-25 23:00:15: Summary epoch 74:
+train time 15.91
+valid time 21.88
+train loss 4.99
+valid acc projection head {
+    'AMI': 0.6272797683152161,
+    'NMI': 0.6339264447839243,
+    'mean_average_precision': 0.004639926662859548,
+    'mean_reciprocal_rank': 0.9047619104385376,
+    'precision_at_1': 0.9047619047619047
+}
+valid acc encoder {
+    'AMI': 0.19698532846009284,
+    'NMI': 0.21134612885251114,
+    'mean_average_precision': 0.004274242834099766,
+    'mean_reciprocal_rank': 0.8333333730697632,
+    'precision_at_1': 0.8333333333333333
+}
+2024-04-25 23:00:15: ------------------------------ END - Epoch 74 -------------------------------
+2024-04-25 23:00:15: ----------------------------- START - Epoch 75 ------------------------------
+2024-04-25 23:00:41: running k-nn with k=1
+2024-04-25 23:00:41: embedding dimensionality is 128
+2024-04-25 23:00:41: running k-means clustering with k=2
+2024-04-25 23:00:41: embedding dimensionality is 128
+2024-04-25 23:00:51: running k-nn with k=1
+2024-04-25 23:00:51: embedding dimensionality is 2048
+2024-04-25 23:00:51: running k-means clustering with k=2
+2024-04-25 23:00:51: embedding dimensionality is 2048
+2024-04-25 23:00:53: Summary epoch 75:
+train time 15.40
+valid time 22.22
+train loss 4.99
+valid acc projection head {
+    'AMI': 0.6272797683152161,
+    'NMI': 0.6339264447839243,
+    'mean_average_precision': 0.00476265616703235,
+    'mean_reciprocal_rank': 0.9285714626312256,
+    'precision_at_1': 0.9285714285714285
+}
+valid acc encoder {
+    'AMI': 0.23781495557494486,
+    'NMI': 0.2514069126755343,
+    'mean_average_precision': 0.004152765671806277,
+    'mean_reciprocal_rank': 0.8095238208770752,
+    'precision_at_1': 0.8095238095238095
+}
+2024-04-25 23:00:53: ------------------------------ END - Epoch 75 -------------------------------
+2024-04-25 23:00:53: ----------------------------- START - Epoch 76 ------------------------------
+2024-04-25 23:01:19: running k-nn with k=1
+2024-04-25 23:01:19: embedding dimensionality is 128
+2024-04-25 23:01:19: running k-means clustering with k=2
+2024-04-25 23:01:19: embedding dimensionality is 128
+2024-04-25 23:01:27: running k-nn with k=1
+2024-04-25 23:01:27: embedding dimensionality is 2048
+2024-04-25 23:01:27: running k-means clustering with k=2
+2024-04-25 23:01:27: embedding dimensionality is 2048
+2024-04-25 23:01:28: Summary epoch 76:
+train time 15.83
+valid time 18.54
+train loss 4.98
+valid acc projection head {
+    'AMI': 0.6272797683152161,
+    'NMI': 0.6339264447839243,
+    'mean_average_precision': 0.004761403825153035,
+    'mean_reciprocal_rank': 0.9285714626312256,
+    'precision_at_1': 0.9285714285714285
+}
+valid acc encoder {
+    'AMI': 0.19698532846009284,
+    'NMI': 0.21134612885251114,
+    'mean_average_precision': 0.004641179004738861,
+    'mean_reciprocal_rank': 0.9047619104385376,
+    'precision_at_1': 0.9047619047619047
+}
+2024-04-25 23:01:28: ------------------------------ END - Epoch 76 -------------------------------
+2024-04-25 23:01:28: ----------------------------- START - Epoch 77 ------------------------------
+2024-04-25 23:01:48: running k-nn with k=1
+2024-04-25 23:01:48: embedding dimensionality is 128
+2024-04-25 23:01:48: running k-means clustering with k=2
+2024-04-25 23:01:48: embedding dimensionality is 128
+2024-04-25 23:01:57: running k-nn with k=1
+2024-04-25 23:01:57: embedding dimensionality is 2048
+2024-04-25 23:01:57: running k-means clustering with k=2
+2024-04-25 23:01:57: embedding dimensionality is 2048
+2024-04-25 23:01:58: Summary epoch 77:
+train time 12.80
+valid time 17.19
+train loss 4.95
+valid acc projection head {
+    'AMI': 0.6272797683152161,
+    'NMI': 0.6339264447839243,
+    'mean_average_precision': 0.0050068628334986424,
+    'mean_reciprocal_rank': 0.9761905074119568,
+    'precision_at_1': 0.9761904761904762
+}
+valid acc encoder {
+    'AMI': 0.19698532846009284,
+    'NMI': 0.21134612885251114,
+    'mean_average_precision': 0.0043969723382725695,
+    'mean_reciprocal_rank': 0.8571428656578064,
+    'precision_at_1': 0.8571428571428571
+}
+2024-04-25 23:01:58: precision_at_1 increased (0.976190 --> 0.976190).  Saving model ...
+2024-04-25 23:01:58: ------------------------------ END - Epoch 77 -------------------------------
+2024-04-25 23:01:58: ----------------------------- START - Epoch 78 ------------------------------
+2024-04-25 23:02:22: running k-nn with k=1
+2024-04-25 23:02:22: embedding dimensionality is 128
+2024-04-25 23:02:22: running k-means clustering with k=2
+2024-04-25 23:02:22: embedding dimensionality is 128
+2024-04-25 23:02:30: running k-nn with k=1
+2024-04-25 23:02:30: embedding dimensionality is 2048
+2024-04-25 23:02:30: running k-means clustering with k=2
+2024-04-25 23:02:30: embedding dimensionality is 2048
+2024-04-25 23:02:30: Summary epoch 78:
+train time 14.87
+valid time 17.02
+train loss 5.02
+valid acc projection head {
+    'AMI': 0.6272797683152161,
+    'NMI': 0.6339264447839243,
+    'mean_average_precision': 0.004884133329325839,
+    'mean_reciprocal_rank': 0.9523809552192688,
+    'precision_at_1': 0.9523809523809523
+}
+valid acc encoder {
+    'AMI': 0.23781495557494486,
+    'NMI': 0.2514069126755343,
+    'mean_average_precision': 0.004399477022031199,
+    'mean_reciprocal_rank': 0.8571428656578064,
+    'precision_at_1': 0.8571428571428571
+}
+2024-04-25 23:02:30: ------------------------------ END - Epoch 78 -------------------------------
+2024-04-25 23:02:30: ----------------------------- START - Epoch 79 ------------------------------
+2024-04-25 23:02:57: running k-nn with k=1
+2024-04-25 23:02:57: embedding dimensionality is 128
+2024-04-25 23:02:57: running k-means clustering with k=2
+2024-04-25 23:02:57: embedding dimensionality is 128
+2024-04-25 23:03:05: running k-nn with k=1
+2024-04-25 23:03:05: embedding dimensionality is 2048
+2024-04-25 23:03:05: running k-means clustering with k=2
+2024-04-25 23:03:05: embedding dimensionality is 2048
+2024-04-25 23:03:06: Summary epoch 79:
+train time 17.74
+valid time 17.47
+train loss 4.98
+valid acc projection head {
+    'AMI': 0.6272797683152161,
+    'NMI': 0.6339264447839243,
+    'mean_average_precision': 0.004884133329325839,
+    'mean_reciprocal_rank': 0.9523809552192688,
+    'precision_at_1': 0.9523809523809523
+}
+valid acc encoder {
+    'AMI': 0.19698532846009284,
+    'NMI': 0.21134612885251114,
+    'mean_average_precision': 0.004518449500566058,
+    'mean_reciprocal_rank': 0.8809524178504944,
+    'precision_at_1': 0.8809523809523809
+}
+2024-04-25 23:03:06: ------------------------------ END - Epoch 79 -------------------------------
+2024-04-25 23:03:06: ----------------------------- START - Epoch 80 ------------------------------
+2024-04-25 23:03:28: running k-nn with k=1
+2024-04-25 23:03:28: embedding dimensionality is 128
+2024-04-25 23:03:28: running k-means clustering with k=2
+2024-04-25 23:03:28: embedding dimensionality is 128
+2024-04-25 23:03:38: running k-nn with k=1
+2024-04-25 23:03:38: embedding dimensionality is 2048
+2024-04-25 23:03:38: running k-means clustering with k=2
+2024-04-25 23:03:38: embedding dimensionality is 2048
+2024-04-25 23:03:38: Summary epoch 80:
+train time 14.52
+valid time 17.68
+train loss 4.95
+valid acc projection head {
+    'AMI': 0.6272797683152161,
+    'NMI': 0.6339264447839243,
+    'mean_average_precision': 0.004761403825153035,
+    'mean_reciprocal_rank': 0.9285714626312256,
+    'precision_at_1': 0.9285714285714285
+}
+valid acc encoder {
+    'AMI': 0.19698532846009284,
+    'NMI': 0.21134612885251114,
+    'mean_average_precision': 0.0043969723382725695,
+    'mean_reciprocal_rank': 0.8571428656578064,
+    'precision_at_1': 0.8571428571428571
+}
+2024-04-25 23:03:38: ------------------------------ END - Epoch 80 -------------------------------
+2024-04-25 23:03:38: ----------------------------- START - Epoch 81 ------------------------------
+2024-04-25 23:04:07: running k-nn with k=1
+2024-04-25 23:04:07: embedding dimensionality is 128
+2024-04-25 23:04:07: running k-means clustering with k=2
+2024-04-25 23:04:07: embedding dimensionality is 128
+2024-04-25 23:04:18: running k-nn with k=1
+2024-04-25 23:04:18: embedding dimensionality is 2048
+2024-04-25 23:04:18: running k-means clustering with k=2
+2024-04-25 23:04:18: embedding dimensionality is 2048
+2024-04-25 23:04:18: Summary epoch 81:
+train time 21.33
+valid time 18.65
+train loss 4.97
+valid acc projection head {
+    'AMI': 0.6272797683152161,
+    'NMI': 0.6339264447839243,
+    'mean_average_precision': 0.004639926662859548,
+    'mean_reciprocal_rank': 0.9047619104385376,
+    'precision_at_1': 0.9047619047619047
+}
+valid acc encoder {
+    'AMI': 0.19698532846009284,
+    'NMI': 0.21134612885251114,
+    'mean_average_precision': 0.004155270355564906,
+    'mean_reciprocal_rank': 0.8095238208770752,
+    'precision_at_1': 0.8095238095238095
+}
+2024-04-25 23:04:18: ------------------------------ END - Epoch 81 -------------------------------
+2024-04-25 23:04:18: ----------------------------- START - Epoch 82 ------------------------------
+2024-04-25 23:04:49: running k-nn with k=1
+2024-04-25 23:04:49: embedding dimensionality is 128
+2024-04-25 23:04:49: running k-means clustering with k=2
+2024-04-25 23:04:49: embedding dimensionality is 128
+2024-04-25 23:04:58: running k-nn with k=1
+2024-04-25 23:04:58: embedding dimensionality is 2048
+2024-04-25 23:04:58: running k-means clustering with k=2
+2024-04-25 23:04:58: embedding dimensionality is 2048
+2024-04-25 23:04:58: Summary epoch 82:
+train time 17.51
+valid time 22.23
+train loss 5.01
+valid acc projection head {
+    'AMI': 0.6272797683152161,
+    'NMI': 0.6339264447839243,
+    'mean_average_precision': 0.004884133329325839,
+    'mean_reciprocal_rank': 0.9523809552192688,
+    'precision_at_1': 0.9523809523809523
+}
+valid acc encoder {
+    'AMI': 0.19698532846009284,
+    'NMI': 0.21134612885251114,
+    'mean_average_precision': 0.004035045535150731,
+    'mean_reciprocal_rank': 0.785714328289032,
+    'precision_at_1': 0.7857142857142857
+}
+2024-04-25 23:04:58: ------------------------------ END - Epoch 82 -------------------------------
+2024-04-25 23:04:58: ----------------------------- START - Epoch 83 ------------------------------
+2024-04-25 23:05:23: running k-nn with k=1
+2024-04-25 23:05:23: embedding dimensionality is 128
+2024-04-25 23:05:23: running k-means clustering with k=2
+2024-04-25 23:05:23: embedding dimensionality is 128
+2024-04-25 23:05:33: running k-nn with k=1
+2024-04-25 23:05:33: embedding dimensionality is 2048
+2024-04-25 23:05:33: running k-means clustering with k=2
+2024-04-25 23:05:33: embedding dimensionality is 2048
+2024-04-25 23:05:33: Summary epoch 83:
+train time 13.96
+valid time 20.95
+train loss 5.01
+valid acc projection head {
+    'AMI': 0.6272797683152161,
+    'NMI': 0.6339264447839243,
+    'mean_average_precision': 0.0050068628334986424,
+    'mean_reciprocal_rank': 0.9761905074119568,
+    'precision_at_1': 0.9761904761904762
+}
+valid acc encoder {
+    'AMI': 0.19698532846009284,
+    'NMI': 0.21134612885251114,
+    'mean_average_precision': 0.004277999859737708,
+    'mean_reciprocal_rank': 0.8333333730697632,
+    'precision_at_1': 0.8333333333333333
+}
+2024-04-25 23:05:33: precision_at_1 increased (0.976190 --> 0.976190).  Saving model ...
+2024-04-25 23:05:33: ------------------------------ END - Epoch 83 -------------------------------
+2024-04-25 23:05:33: ----------------------------- START - Epoch 84 ------------------------------
+2024-04-25 23:05:59: running k-nn with k=1
+2024-04-25 23:05:59: embedding dimensionality is 128
+2024-04-25 23:05:59: running k-means clustering with k=2
+2024-04-25 23:05:59: embedding dimensionality is 128
+2024-04-25 23:06:10: running k-nn with k=1
+2024-04-25 23:06:10: embedding dimensionality is 2048
+2024-04-25 23:06:10: running k-means clustering with k=2
+2024-04-25 23:06:10: embedding dimensionality is 2048
+2024-04-25 23:06:10: Summary epoch 84:
+train time 16.35
+valid time 20.57
+train loss 4.97
+valid acc projection head {
+    'AMI': 0.6272797683152161,
+    'NMI': 0.6339264447839243,
+    'mean_average_precision': 0.004884133329325839,
+    'mean_reciprocal_rank': 0.9523809552192688,
+    'precision_at_1': 0.9523809523809523
+}
+valid acc encoder {
+    'AMI': 0.19698532846009284,
+    'NMI': 0.21134612885251114,
+    'mean_average_precision': 0.004154018013685592,
+    'mean_reciprocal_rank': 0.8095238208770752,
+    'precision_at_1': 0.8095238095238095
+}
+2024-04-25 23:06:10: ------------------------------ END - Epoch 84 -------------------------------
+2024-04-25 23:06:10: ----------------------------- START - Epoch 85 ------------------------------
+2024-04-25 23:06:36: running k-nn with k=1
+2024-04-25 23:06:36: embedding dimensionality is 128
+2024-04-25 23:06:36: running k-means clustering with k=2
+2024-04-25 23:06:36: embedding dimensionality is 128
+2024-04-25 23:06:43: running k-nn with k=1
+2024-04-25 23:06:43: embedding dimensionality is 2048
+2024-04-25 23:06:43: running k-means clustering with k=2
+2024-04-25 23:06:43: embedding dimensionality is 2048
+2024-04-25 23:06:43: Summary epoch 85:
+train time 16.93
+valid time 16.59
+train loss 4.93
+valid acc projection head {
+    'AMI': 0.6272797683152161,
+    'NMI': 0.6339264447839243,
+    'mean_average_precision': 0.0050068628334986424,
+    'mean_reciprocal_rank': 0.9761905074119568,
+    'precision_at_1': 0.9761904761904762
+}
+valid acc encoder {
+    'AMI': 0.19698532846009284,
+    'NMI': 0.21134612885251114,
+    'mean_average_precision': 0.004276747517858395,
+    'mean_reciprocal_rank': 0.8333333730697632,
+    'precision_at_1': 0.8333333333333333
+}
+2024-04-25 23:06:43: precision_at_1 increased (0.976190 --> 0.976190).  Saving model ...
+2024-04-25 23:06:44: ------------------------------ END - Epoch 85 -------------------------------
+2024-04-25 23:06:44: ----------------------------- START - Epoch 86 ------------------------------
+2024-04-25 23:07:12: running k-nn with k=1
+2024-04-25 23:07:12: embedding dimensionality is 128
+2024-04-25 23:07:12: running k-means clustering with k=2
+2024-04-25 23:07:12: embedding dimensionality is 128
+2024-04-25 23:07:19: running k-nn with k=1
+2024-04-25 23:07:19: embedding dimensionality is 2048
+2024-04-25 23:07:19: running k-means clustering with k=2
+2024-04-25 23:07:19: embedding dimensionality is 2048
+2024-04-25 23:07:20: Summary epoch 86:
+train time 18.51
+valid time 17.13
+train loss 4.96
+valid acc projection head {
+    'AMI': 0.6272797683152161,
+    'NMI': 0.6339264447839243,
+    'mean_average_precision': 0.004884133329325839,
+    'mean_reciprocal_rank': 0.9523809552192688,
+    'precision_at_1': 0.9523809523809523
+}
+valid acc encoder {
+    'AMI': 0.19698532846009284,
+    'NMI': 0.21134612885251114,
+    'mean_average_precision': 0.004519701842445373,
+    'mean_reciprocal_rank': 0.8809524178504944,
+    'precision_at_1': 0.8809523809523809
+}
+2024-04-25 23:07:20: ------------------------------ END - Epoch 86 -------------------------------
+2024-04-25 23:07:20: ----------------------------- START - Epoch 87 ------------------------------
+2024-04-25 23:07:43: running k-nn with k=1
+2024-04-25 23:07:43: embedding dimensionality is 128
+2024-04-25 23:07:43: running k-means clustering with k=2
+2024-04-25 23:07:43: embedding dimensionality is 128
+2024-04-25 23:07:53: running k-nn with k=1
+2024-04-25 23:07:53: embedding dimensionality is 2048
+2024-04-25 23:07:53: running k-means clustering with k=2
+2024-04-25 23:07:53: embedding dimensionality is 2048
+2024-04-25 23:07:53: Summary epoch 87:
+train time 15.97
+valid time 16.91
+train loss 4.96
+valid acc projection head {
+    'AMI': 0.6272797683152161,
+    'NMI': 0.6339264447839243,
+    'mean_average_precision': 0.004761403825153035,
+    'mean_reciprocal_rank': 0.9285714626312256,
+    'precision_at_1': 0.9285714285714285
+}
+valid acc encoder {
+    'AMI': 0.19698532846009284,
+    'NMI': 0.21134612885251114,
+    'mean_average_precision': 0.004398224680151884,
+    'mean_reciprocal_rank': 0.8571428656578064,
+    'precision_at_1': 0.8571428571428571
+}
+2024-04-25 23:07:53: ------------------------------ END - Epoch 87 -------------------------------
+2024-04-25 23:07:53: ----------------------------- START - Epoch 88 ------------------------------
+2024-04-25 23:08:18: running k-nn with k=1
+2024-04-25 23:08:18: embedding dimensionality is 128
+2024-04-25 23:08:18: running k-means clustering with k=2
+2024-04-25 23:08:18: embedding dimensionality is 128
+2024-04-25 23:08:27: running k-nn with k=1
+2024-04-25 23:08:27: embedding dimensionality is 2048
+2024-04-25 23:08:27: running k-means clustering with k=2
+2024-04-25 23:08:27: embedding dimensionality is 2048
+2024-04-25 23:08:28: Summary epoch 88:
+train time 17.29
+valid time 17.61
+train loss 4.98
+valid acc projection head {
+    'AMI': 0.6272797683152161,
+    'NMI': 0.6339264447839243,
+    'mean_average_precision': 0.004884133329325839,
+    'mean_reciprocal_rank': 0.9523809552192688,
+    'precision_at_1': 0.9523809523809523
+}
+valid acc encoder {
+    'AMI': 0.19698532846009284,
+    'NMI': 0.21134612885251114,
+    'mean_average_precision': 0.004154018013685592,
+    'mean_reciprocal_rank': 0.8095238208770752,
+    'precision_at_1': 0.8095238095238095
+}
+2024-04-25 23:08:28: ------------------------------ END - Epoch 88 -------------------------------
+2024-04-25 23:08:28: ----------------------------- START - Epoch 89 ------------------------------
+2024-04-25 23:08:52: running k-nn with k=1
+2024-04-25 23:08:52: embedding dimensionality is 128
+2024-04-25 23:08:52: running k-means clustering with k=2
+2024-04-25 23:08:52: embedding dimensionality is 128
+2024-04-25 23:09:01: running k-nn with k=1
+2024-04-25 23:09:01: embedding dimensionality is 2048
+2024-04-25 23:09:01: running k-means clustering with k=2
+2024-04-25 23:09:01: embedding dimensionality is 2048
+2024-04-25 23:09:01: Summary epoch 89:
+train time 17.07
+valid time 16.29
+train loss 4.97
+valid acc projection head {
+    'AMI': 0.6272797683152161,
+    'NMI': 0.6339264447839243,
+    'mean_average_precision': 0.004884133329325839,
+    'mean_reciprocal_rank': 0.9523809552192688,
+    'precision_at_1': 0.9523809523809523
+}
+valid acc encoder {
+    'AMI': 0.19698532846009284,
+    'NMI': 0.21134612885251114,
+    'mean_average_precision': 0.004155270355564906,
+    'mean_reciprocal_rank': 0.8095238208770752,
+    'precision_at_1': 0.8095238095238095
+}
+2024-04-25 23:09:01: ------------------------------ END - Epoch 89 -------------------------------
+2024-04-25 23:09:01: ----------------------------- START - Epoch 90 ------------------------------
+2024-04-25 23:09:25: running k-nn with k=1
+2024-04-25 23:09:25: embedding dimensionality is 128
+2024-04-25 23:09:25: running k-means clustering with k=2
+2024-04-25 23:09:25: embedding dimensionality is 128
+2024-04-25 23:09:36: running k-nn with k=1
+2024-04-25 23:09:36: embedding dimensionality is 2048
+2024-04-25 23:09:36: running k-means clustering with k=2
+2024-04-25 23:09:36: embedding dimensionality is 2048
+2024-04-25 23:09:36: Summary epoch 90:
+train time 16.87
+valid time 18.23
+train loss 4.97
+valid acc projection head {
+    'AMI': 0.6272797683152161,
+    'NMI': 0.6339264447839243,
+    'mean_average_precision': 0.004884133329325839,
+    'mean_reciprocal_rank': 0.9523809552192688,
+    'precision_at_1': 0.9523809523809523
+}
+valid acc encoder {
+    'AMI': 0.19698532846009284,
+    'NMI': 0.21134612885251114,
+    'mean_average_precision': 0.004763908508911664,
+    'mean_reciprocal_rank': 0.9285714626312256,
+    'precision_at_1': 0.9285714285714285
+}
+2024-04-25 23:09:36: ------------------------------ END - Epoch 90 -------------------------------
+2024-04-25 23:09:36: ----------------------------- START - Epoch 91 ------------------------------
+2024-04-25 23:10:00: running k-nn with k=1
+2024-04-25 23:10:00: embedding dimensionality is 128
+2024-04-25 23:10:00: running k-means clustering with k=2
+2024-04-25 23:10:00: embedding dimensionality is 128
+2024-04-25 23:10:09: running k-nn with k=1
+2024-04-25 23:10:09: embedding dimensionality is 2048
+2024-04-25 23:10:09: running k-means clustering with k=2
+2024-04-25 23:10:09: embedding dimensionality is 2048
+2024-04-25 23:10:09: Summary epoch 91:
+train time 16.18
+valid time 16.78
+train loss 4.95
+valid acc projection head {
+    'AMI': 0.6272797683152161,
+    'NMI': 0.6339264447839243,
+    'mean_average_precision': 0.00476265616703235,
+    'mean_reciprocal_rank': 0.9285714626312256,
+    'precision_at_1': 0.9285714285714285
+}
+valid acc encoder {
+    'AMI': 0.19698532846009284,
+    'NMI': 0.21134612885251114,
+    'mean_average_precision': 0.004276747517858395,
+    'mean_reciprocal_rank': 0.8333333730697632,
+    'precision_at_1': 0.8333333333333333
+}
+2024-04-25 23:10:09: ------------------------------ END - Epoch 91 -------------------------------
+2024-04-25 23:10:09: ----------------------------- START - Epoch 92 ------------------------------
+2024-04-25 23:10:34: running k-nn with k=1
+2024-04-25 23:10:34: embedding dimensionality is 128
+2024-04-25 23:10:34: running k-means clustering with k=2
+2024-04-25 23:10:34: embedding dimensionality is 128
+2024-04-25 23:10:45: running k-nn with k=1
+2024-04-25 23:10:45: embedding dimensionality is 2048
+2024-04-25 23:10:45: running k-means clustering with k=2
+2024-04-25 23:10:45: embedding dimensionality is 2048
+2024-04-25 23:10:46: Summary epoch 92:
+train time 17.21
+valid time 19.31
+train loss 5.00
+valid acc projection head {
+    'AMI': 0.6272797683152161,
+    'NMI': 0.6339264447839243,
+    'mean_average_precision': 0.0050068628334986424,
+    'mean_reciprocal_rank': 0.9761905074119568,
+    'precision_at_1': 0.9761904761904762
+}
+valid acc encoder {
+    'AMI': 0.19698532846009284,
+    'NMI': 0.21134612885251114,
+    'mean_average_precision': 0.004518449500566058,
+    'mean_reciprocal_rank': 0.8809524178504944,
+    'precision_at_1': 0.8809523809523809
+}
+2024-04-25 23:10:46: precision_at_1 increased (0.976190 --> 0.976190).  Saving model ...
+2024-04-25 23:10:46: ------------------------------ END - Epoch 92 -------------------------------
+2024-04-25 23:10:46: ----------------------------- START - Epoch 93 ------------------------------
+2024-04-25 23:11:12: running k-nn with k=1
+2024-04-25 23:11:12: embedding dimensionality is 128
+2024-04-25 23:11:12: running k-means clustering with k=2
+2024-04-25 23:11:12: embedding dimensionality is 128
+2024-04-25 23:11:20: running k-nn with k=1
+2024-04-25 23:11:20: embedding dimensionality is 2048
+2024-04-25 23:11:20: running k-means clustering with k=2
+2024-04-25 23:11:20: embedding dimensionality is 2048
+2024-04-25 23:11:20: Summary epoch 93:
+train time 17.27
+valid time 16.98
+train loss 4.97
+valid acc projection head {
+    'AMI': 0.6272797683152161,
+    'NMI': 0.6339264447839243,
+    'mean_average_precision': 0.004885385671205153,
+    'mean_reciprocal_rank': 0.9523809552192688,
+    'precision_at_1': 0.9523809523809523
+}
+valid acc encoder {
+    'AMI': 0.19698532846009284,
+    'NMI': 0.21134612885251114,
+    'mean_average_precision': 0.004155270355564906,
+    'mean_reciprocal_rank': 0.8095238208770752,
+    'precision_at_1': 0.8095238095238095
+}
+2024-04-25 23:11:20: ------------------------------ END - Epoch 93 -------------------------------
+2024-04-25 23:11:20: ----------------------------- START - Epoch 94 ------------------------------
+2024-04-25 23:11:46: running k-nn with k=1
+2024-04-25 23:11:46: embedding dimensionality is 128
+2024-04-25 23:11:46: running k-means clustering with k=2
+2024-04-25 23:11:46: embedding dimensionality is 128
+2024-04-25 23:11:56: running k-nn with k=1
+2024-04-25 23:11:56: embedding dimensionality is 2048
+2024-04-25 23:11:56: running k-means clustering with k=2
+2024-04-25 23:11:56: embedding dimensionality is 2048
+2024-04-25 23:11:56: Summary epoch 94:
+train time 17.24
+valid time 18.51
+train loss 4.98
+valid acc projection head {
+    'AMI': 0.6272797683152161,
+    'NMI': 0.6339264447839243,
+    'mean_average_precision': 0.004761403825153035,
+    'mean_reciprocal_rank': 0.9285714626312256,
+    'precision_at_1': 0.9285714285714285
+}
+valid acc encoder {
+    'AMI': 0.19698532846009284,
+    'NMI': 0.21134612885251114,
+    'mean_average_precision': 0.004396972338272569,
+    'mean_reciprocal_rank': 0.8571428656578064,
+    'precision_at_1': 0.8571428571428571
+}
+2024-04-25 23:11:56: ------------------------------ END - Epoch 94 -------------------------------
+2024-04-25 23:11:56: ----------------------------- START - Epoch 95 ------------------------------
+2024-04-25 23:12:22: running k-nn with k=1
+2024-04-25 23:12:22: embedding dimensionality is 128
+2024-04-25 23:12:22: running k-means clustering with k=2
+2024-04-25 23:12:22: embedding dimensionality is 128
+2024-04-25 23:12:29: running k-nn with k=1
+2024-04-25 23:12:29: embedding dimensionality is 2048
+2024-04-25 23:12:29: running k-means clustering with k=2
+2024-04-25 23:12:29: embedding dimensionality is 2048
+2024-04-25 23:12:29: Summary epoch 95:
+train time 16.61
+valid time 16.23
+train loss 4.96
+valid acc projection head {
+    'AMI': 0.6272797683152161,
+    'NMI': 0.6339264447839243,
+    'mean_average_precision': 0.004761403825153035,
+    'mean_reciprocal_rank': 0.9285714626312256,
+    'precision_at_1': 0.9285714285714285
+}
+valid acc encoder {
+    'AMI': 0.19698532846009284,
+    'NMI': 0.21134612885251114,
+    'mean_average_precision': 0.004398224680151884,
+    'mean_reciprocal_rank': 0.8571428656578064,
+    'precision_at_1': 0.8571428571428571
+}
+2024-04-25 23:12:29: ------------------------------ END - Epoch 95 -------------------------------
+2024-04-25 23:12:29: ----------------------------- START - Epoch 96 ------------------------------
+2024-04-25 23:12:49: running k-nn with k=1
+2024-04-25 23:12:49: embedding dimensionality is 128
+2024-04-25 23:12:49: running k-means clustering with k=2
+2024-04-25 23:12:49: embedding dimensionality is 128
+2024-04-25 23:12:56: running k-nn with k=1
+2024-04-25 23:12:56: embedding dimensionality is 2048
+2024-04-25 23:12:57: running k-means clustering with k=2
+2024-04-25 23:12:57: embedding dimensionality is 2048
+2024-04-25 23:12:57: Summary epoch 96:
+train time 13.19
+valid time 14.38
+train loss 4.94
+valid acc projection head {
+    'AMI': 0.6272797683152161,
+    'NMI': 0.6339264447839243,
+    'mean_average_precision': 0.004639926662859547,
+    'mean_reciprocal_rank': 0.9047619104385376,
+    'precision_at_1': 0.9047619047619047
+}
+valid acc encoder {
+    'AMI': 0.19698532846009284,
+    'NMI': 0.21134612885251114,
+    'mean_average_precision': 0.004763908508911664,
+    'mean_reciprocal_rank': 0.9285714626312256,
+    'precision_at_1': 0.9285714285714285
+}
+2024-04-25 23:12:57: ------------------------------ END - Epoch 96 -------------------------------
+2024-04-25 23:12:57: ----------------------------- START - Epoch 97 ------------------------------
+2024-04-25 23:13:19: running k-nn with k=1
+2024-04-25 23:13:19: embedding dimensionality is 128
+2024-04-25 23:13:19: running k-means clustering with k=2
+2024-04-25 23:13:19: embedding dimensionality is 128
+2024-04-25 23:13:27: running k-nn with k=1
+2024-04-25 23:13:27: embedding dimensionality is 2048
+2024-04-25 23:13:27: running k-means clustering with k=2
+2024-04-25 23:13:27: embedding dimensionality is 2048
+2024-04-25 23:13:27: Summary epoch 97:
+train time 14.99
+valid time 15.41
+train loss 4.99
+valid acc projection head {
+    'AMI': 0.6272797683152161,
+    'NMI': 0.6339264447839243,
+    'mean_average_precision': 0.004884133329325839,
+    'mean_reciprocal_rank': 0.9523809552192688,
+    'precision_at_1': 0.9523809523809523
+}
+valid acc encoder {
+    'AMI': 0.19698532846009284,
+    'NMI': 0.21134612885251114,
+    'mean_average_precision': 0.004519701842445372,
+    'mean_reciprocal_rank': 0.8809524178504944,
+    'precision_at_1': 0.8809523809523809
+}
+2024-04-25 23:13:27: ------------------------------ END - Epoch 97 -------------------------------
+2024-04-25 23:13:27: ----------------------------- START - Epoch 98 ------------------------------
+2024-04-25 23:13:53: running k-nn with k=1
+2024-04-25 23:13:53: embedding dimensionality is 128
+2024-04-25 23:13:53: running k-means clustering with k=2
+2024-04-25 23:13:53: embedding dimensionality is 128
+2024-04-25 23:14:01: running k-nn with k=1
+2024-04-25 23:14:01: embedding dimensionality is 2048
+2024-04-25 23:14:01: running k-means clustering with k=2
+2024-04-25 23:14:01: embedding dimensionality is 2048
+2024-04-25 23:14:01: Summary epoch 98:
+train time 14.03
+valid time 19.97
+train loss 4.99
+valid acc projection head {
+    'AMI': 0.6272797683152161,
+    'NMI': 0.6339264447839243,
+    'mean_average_precision': 0.004884133329325839,
+    'mean_reciprocal_rank': 0.9523809552192688,
+    'precision_at_1': 0.9523809523809523
+}
+valid acc encoder {
+    'AMI': 0.19698532846009284,
+    'NMI': 0.21134612885251114,
+    'mean_average_precision': 0.004398224680151884,
+    'mean_reciprocal_rank': 0.8571428656578064,
+    'precision_at_1': 0.8571428571428571
+}
+2024-04-25 23:14:01: ------------------------------ END - Epoch 98 -------------------------------
+2024-04-25 23:14:01: ----------------------------- START - Epoch 99 ------------------------------
+2024-04-25 23:14:23: running k-nn with k=1
+2024-04-25 23:14:23: embedding dimensionality is 128
+2024-04-25 23:14:23: running k-means clustering with k=2
+2024-04-25 23:14:23: embedding dimensionality is 128
+2024-04-25 23:14:29: running k-nn with k=1
+2024-04-25 23:14:29: embedding dimensionality is 2048
+2024-04-25 23:14:29: running k-means clustering with k=2
+2024-04-25 23:14:29: embedding dimensionality is 2048
+2024-04-25 23:14:29: Summary epoch 99:
+train time 14.35
+valid time 13.76
+train loss 4.95
+valid acc projection head {
+    'AMI': 0.6272797683152161,
+    'NMI': 0.6339264447839243,
+    'mean_average_precision': 0.004884133329325839,
+    'mean_reciprocal_rank': 0.9523809552192688,
+    'precision_at_1': 0.9523809523809523
+}
+valid acc encoder {
+    'AMI': 0.19698532846009284,
+    'NMI': 0.21134612885251114,
+    'mean_average_precision': 0.004155270355564906,
+    'mean_reciprocal_rank': 0.8095238208770752,
+    'precision_at_1': 0.8095238095238095
+}
+2024-04-25 23:14:29: ------------------------------ END - Epoch 99 -------------------------------
